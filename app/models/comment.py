@@ -1,5 +1,5 @@
 from .db import db
-
+from datetime import datetime
 
 
 class Comment(db.Model):
@@ -7,7 +7,7 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, nullable = False, primary_key = True)
     commentBody = db.Column(db.String(255), nullable = False)
-    createdAt = db.Column(db.DateTime, nullable = False)
+    createdAt = db.Column(db.DateTime, nullable = False, default=datetime.utcnow)
     projectId = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable = False)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
 

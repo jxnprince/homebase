@@ -1,14 +1,15 @@
-from app.models import db, Team
+from app.models import db, Team, User
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_teams():
-
+    user = User.query.filter(User.username == "Demo").first()
     data =  [
             Team(teamName = "Gold"),
             Team(teamName = "Green")
             ]
     for team in data:
+        user.teams.append(team)
         db.session.add(team)
     db.session.commit()
 
@@ -18,5 +19,5 @@ def seed_teams():
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
 def undo_teams():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE teams RESTART IDENTITY CASCADE;')
     db.session.commit()
