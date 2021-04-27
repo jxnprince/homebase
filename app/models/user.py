@@ -1,7 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .usersOnTeam import usersOnTeams
+from .usersOnTeam import UsersOnTeams
 
 
 
@@ -17,10 +17,10 @@ class User(db.Model, UserMixin):
   user_avatar = db.Column(db.String(255), nullable = True)
   hashed_password = db.Column(db.String(255), nullable = False)
 
-  teams = db.relationship("Team", secondary=usersOnTeams, back_populates="users")
-  comments = db.relationship("Comment", back_populates="users")
-  tasks = db.relationship("Task", back_populates="users")
-  createdTasks = db.relationship("Task", back_populates="users")
+  teams = db.relationship("Team", secondary=UsersOnTeams, back_populates="users")
+  comments = db.relationship("Comment", back_populates="user")
+  tasks = db.relationship("Task", back_populates="user")
+
 
 
   @property

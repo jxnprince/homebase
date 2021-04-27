@@ -12,5 +12,5 @@ class Project(db.Model):
     teamId = db.Column(db.Integer, db.ForeignKey("teams.id"), nullable = False)
 
     team = db.relationship("Team", back_populates="projects")
-    comments = db.relationship("Comment", back_populates="projects")
-    tasks = db.relationship("Task", back_populates="projects")
+    comments = db.relationship("Comment", back_populates="project")
+    tasks = db.relationship("Task", back_populates="project")
