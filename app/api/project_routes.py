@@ -9,9 +9,9 @@ from ..models.db import db
 
 project_routes = Blueprint('projects', __name__)
 
-#"homebase/users/:id/teams/:id/projects/:id"
-#GET
-#renders project, team members associated, tasks, and the messageboard associated with the project
+# "homebase/users/:id/teams/:id/projects/:id"
+# GET
+# renders project, team members associated, tasks, and the messageboard associated with the project
 @project_routes.route('/<int:id>', methods=['GET'])
 def get_projects(id):
     project = Project.query.get(id)
