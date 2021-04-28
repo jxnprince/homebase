@@ -7,6 +7,7 @@ class Team(db.Model):
 
     id = db.Column(db.Integer, nullable = False, primary_key = True)
     teamName = db.Column(db.String(50), nullable = False)
+    
     users = db.relationship("User", secondary=UsersOnTeams, back_populates="teams")
     projects = db.relationship("Project", back_populates="team")
 
@@ -14,6 +15,4 @@ class Team(db.Model):
         return {
             "id": self.id,
             "teamName": self.teamName,
-            "users": self.Users,
-            "projects": self.projectId
         }
