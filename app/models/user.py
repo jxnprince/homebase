@@ -4,8 +4,6 @@ from flask_login import UserMixin
 from .usersOnTeam import UsersOnTeams
 
 
-
-
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
@@ -20,7 +18,6 @@ class User(db.Model, UserMixin):
   teams = db.relationship("Team", secondary=UsersOnTeams, back_populates="users")
   comments = db.relationship("Comment", back_populates="user")
   tasks = db.relationship("Task", back_populates="user")
-
 
 
   @property
@@ -44,5 +41,6 @@ class User(db.Model, UserMixin):
       "lastname": self.lastname,
       "username": self.username,
       "email": self.email,
-      "user_avatar": self.user_avatar
+      "user_avatar": self.user_avatar,
+      "hashed_password": self.hashed_password
     }
