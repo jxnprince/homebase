@@ -1,51 +1,104 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, session, request
+from flask_login import current_user
+import datetime
+from ..models.db import db
 from ..models.project import Project
 from ..models.team import Team
-from ..models.usersOnTeam import UsersOnTeams
 from ..models.user import User
 from ..models.task import Task
 from ..models.comment import Comment
-from ..models.db import db
+from ..models.usersOnTeam import UsersOnTeams
+from ..forms.project_form import ProjectForm
+from ..forms.comment_form import CommentForm
 
 project_routes = Blueprint('projects', __name__)
 
 #"homebase/users/:id/teams/:id/projects/:id"
 #GET
 #renders project, team members associated, tasks, and the messageboard associated with the project
-@project_routes.route('/<int:id>', methods=['GET'])
+@project_routes.route('/<int:id>/teams/<int:id2>/user/<int:id3>', methods=['GET'])
 def get_projects(id):
     project = Project.query.get(id)
     team = Team.query.get(project.teamId)
-    userIdList = Users.query.join(User.teams)
     taskList = Task.query.filter(Task.projectId == id).all()
     comments = Comment.query.filter(Comment.projectId == id).all()
-    
+    usersOnTeam = team.users
     return {
         "project": project.to_dict(),
         "team": team.to_dict(),
-        # "users": [User.query.get(userId).to_dict() for userId in userIdList],
         "tasks": [task.to_dict() for task in taskList],
-        "comments": [comment.to_dict() for comment in comments]
+        "comments": [comment.to_dict() for comment in comments],
+        "users": [user.to_dict() for user in usersOnTeam],
     }
 
 #"homebase/users/:id/teams/:id/projects/"
 #POST
 #renders a modal with a form for creating a project.  Appears on team page
+@project_routes.route('create/teams/<int:teamId>', methods=['post'])
+def post_project(teamId):
+    form = ProjectForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = Project()
+        form.populate_obj(data)
+        data.teamId = teamId
+        db.session.add(data)
+        db.session.commit()
+        return data.to_dict()
+    else:
+        return 'Something is wrong with the /api/projects/create route'
 
 #"homebase/users/:id/teams/:id/projects/:id/delete"
-#Delete
-    # all associated tasks.projectId
-    # messageboard comments.projectId
-    # Deletes selected Project
+@project_routes.route('<int:id>/delete', methods=['DELETE'])
+def delete_project(id):
+    project = Project.query.get(id)
+    db.session.delete(project)
+    db.session.commit()
+    return (f'Project: {project.projectTitle} was Deleted')
 
 #"homebase/users/:id/teams/:id/projects/:id/edit"
 #PATCH
 #renders a modal with a form for creating a project with prepopulated forms.
+@project_routes.route('<int:id>/edit', methods=['PATCH'])
+def edit_project(id):
+    project = Project.query.get(id)
+    teamId = project.teamId
+    db.session.delete(project)
+    db.session.commit()
+    projectTitle = request.form['projectTitle']
+    projectDescription = request.form['projectDescription']
+    dueDate = request.form['dueDate']
+    project = Project(projectTitle=projectTitle, projectDescription=projectDescription, dueDate=dueDate,teamId=teamId)
+    db.session.add(project)
+    db.session.commit()
+    return f'{projectTitle} was successfully updated'
+
 
 #"homebase/users/:id/teams/:id/projects/:id/comments"
 #POST
 #Posts a comment to the message board with timestamp
+@project_routes.route('<int:id>/comment', methods=['POST'])
+def post_comment(id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = Comment()
+        form.populate_obj(data)
+        data.createdAt = datetime.datetime.utcnow()
+        data.projectId = id
+        data.userId = current_user.id
+        db.session.add(data)
+        db.session.commit()
+        return data.to_dict()
+    else:
+        return 'Something is wrong with the /api/projects/comment'
 
 #"homebase/users/:id/teams/:id/projects/:id/comments/:id/delete"
 #DELETE
 #Deletes a comment from the message board
+@project_routes.route('/comment/<int:id>/delete', methods=['DELETE'])
+def delete_comment(id):
+    comment = Comment.query.get(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return (f'Comment was Deleted')
