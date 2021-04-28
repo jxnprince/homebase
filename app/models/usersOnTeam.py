@@ -1,8 +1,6 @@
 from .db import db
 
 
-
-
 UsersOnTeams = db.Table(
     "usersOnTeams",
      db.Column("userId", db.Integer, db.ForeignKey("users.id"), primary_key = True),
