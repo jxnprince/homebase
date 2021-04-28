@@ -1,8 +1,8 @@
-"""datetime fix
+"""The one migration to rule them all
 
-Revision ID: 3a4b5d443877
-Revises: 0585aa0f1165
-Create Date: 2021-04-27 15:25:56.942666
+Revision ID: 3a0669bb5312
+Revises: 
+Create Date: 2021-04-28 11:45:16.436405
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3a4b5d443877'
-down_revision = '0585aa0f1165'
+revision = '3a0669bb5312'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -54,7 +54,7 @@ def upgrade():
     op.create_table('comments',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('commentBody', sa.String(length=255), nullable=False),
-    sa.Column('createdAt', sa.DateTime(), nullable=False),
+    sa.Column('createdAt', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.Column('projectId', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['projectId'], ['projects.id'], ),
