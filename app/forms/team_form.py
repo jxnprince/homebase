@@ -1,15 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
+from wtforms.fields.html import SearchField, SearchForm
 from wtforms.validators import DataRequired
 # from ..widgets import html5 as widgets
 # from . import core
 
 
-# class SearchField(core.StringField):
-#     """
-#     Represents an ``<input type="search">``.
-#     """
-#     widget = widgets.SearchInput()
+class SearchForm(FlaskForm):
+    userSearch = SearchField()
 
 
 class TeamForm(FlaskForm):

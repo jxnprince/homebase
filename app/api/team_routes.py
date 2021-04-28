@@ -30,16 +30,14 @@ team_routes = Blueprint('teams', __name__)
 #     users = Users.query
 
 
-@team_routes.route('/homebase/users/<int:id>/teams')
+@team_routes.route('/users/<int:id>/teams')
 def teams(id):
     user = User.query.get(id)
     teams = user.teams
-    for team in teams:
-        print(team.teamName)
-    return {"teams": [(team.teamName, team.id) for team in teams]}
+    return {"teams": [team.to_dict() for team in teams]}
 
 
-@team_routes.route('/homebase/users/<int:id>/teams', methods=['POST'])
+@team_routes.route('/users/<int:id>/teams', methods=['POST'])
 def teams_post(id):
     form = TeamForm()
     user = User.query.get(id)
@@ -50,10 +48,9 @@ def teams_post(id):
         )
         team.users.append(user)
         db.session.add(team)
-        print(team)
         db.session.commit()
-        return {"team": [team.teamName]}
+        return team.to_dict()
 
 
-@team_routes.route('/homebase/users/<int:id>/teams/<int:teamId>/delete', methods=['DELETE'])
-def teams_delete(id, teamId):
+# @team_routes.route('/homebase/users/<int:id>/teams/<int:teamId>/delete', methods=['DELETE'])
+# def teams_delete(id, teamId):
