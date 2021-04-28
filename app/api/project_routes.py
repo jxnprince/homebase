@@ -6,31 +6,26 @@ from ..models.user import User
 from ..models.task import Task
 from ..models.comment import Comment
 from ..models.db import db
-from ..__init__.py import app
-from flask_wtf import FlaskForm
-from wtforms.validators import DataRequired
-from wtforms.fields import StringField, IntegerField, DateField, BooleanField, SubmitField, SelectField, TextAreaField
 
 project_routes = Blueprint('projects', __name__)
 
-#  "homebase/users/:id/teams/:id/projects/:id"
-#  GET
-#  renders project, team members associated, tasks, and the messageboard associated with the project
-
-@project_routes.route('/users/<int:user_Id>/teams/<int:team_Id>/projects/<int:project_Id>', methods=['GET'])
-def get_projects():
-    project = Project.query.get(project_Id)
-    team = Team.query.get(team_Id)
-    users = UsersOnTeam.query.filter(select(UsersOnTeam.userId).where(UsersOnTeam.teamId == team_id)).all()
-    tasks = Task.query.filter(select(Task.id).where(Task.projectId == project_Id)).all()
-    comments = Comment.query.filter(select(Comment.id).where(Comment.projectId == project_Id)).all()
+#"homebase/users/:id/teams/:id/projects/:id"
+#GET
+#renders project, team members associated, tasks, and the messageboard associated with the project
+@project_routes.route('/<int:id>', methods=['GET'])
+def get_projects(id):
+    project = Project.query.get(id)
+    team = Team.query.get(project.teamId)
+    userIdList = Users.query.join(User.teams)
+    taskList = Task.query.filter(Task.projectId == id).all()
+    comments = Comment.query.filter(Comment.projectId == id).all()
     
     return {
         "project": project.to_dict(),
-        "team": project.to_dict(),
-        "users": project.to_dict(),
-        "tasks": project.to_dict(),
-        "comments": project.to_dict()
+        "team": team.to_dict(),
+        # "users": [User.query.get(userId).to_dict() for userId in userIdList],
+        "tasks": [task.to_dict() for task in taskList],
+        "comments": [comment.to_dict() for comment in comments]
     }
 
 # "homebase/users/:id/teams/:id/projects/"
