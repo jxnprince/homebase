@@ -6,12 +6,12 @@ from app.models import db, User
 def seed_users():
 
     data =  [
-            User(username='Demo', email='demo@aa.io', password=generate_password_hash('password'), user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Demo-liticia", lastname="Demoliter"),
-            User(username='markman', email='mark@aa.io',  password=generate_password_hash('password'), user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Markief", lastname="Manchester"),
-            User(username='eclectichobo', email='hobo@aa.io', password=generate_password_hash('password'), user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Warren", lastname="Griffin"),
-            User(username='firefly', email='flyfire@aa.io', password=generate_password_hash('password'), user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Alexis", lastname="Goldberg"),
-            User(username='thehuntress', email='huntingdudes@aa.io',password=generate_password_hash('password'), user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Griselda", lastname="McDermott"),
-            User(username='morganfreeman', email='shawshank@aa.io',password=generate_password_hash('password'), user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Otis", lastname="Redding")
+            User(username='Demo', email='demo@aa.io', password='password', user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Demo-liticia", lastname="Demoliter"),
+            User(username='markman', email='mark@aa.io',  password='password', user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Markief", lastname="Manchester"),
+            User(username='eclectichobo', email='hobo@aa.io', password='password', user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Warren", lastname="Griffin"),
+            User(username='firefly', email='flyfire@aa.io', password='password', user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Alexis", lastname="Goldberg"),
+            User(username='thehuntress', email='huntingdudes@aa.io',password='password', user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Griselda", lastname="McDermott"),
+            User(username='morganfreeman', email='shawshank@aa.io',password='password', user_avatar='https://www.minervastrategies.com/wp-content/uploads/2016/03/default-avatar.jpg', firstname="Otis", lastname="Redding")
             ]
     for user in data:
         db.session.add(user)

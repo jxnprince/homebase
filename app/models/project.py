@@ -19,7 +19,7 @@ class Project(db.Model):
         return {
             "id": self.id,
             "projectTitle": self.projectTitle,
-            "projectDescription": projectDescription,
+            "projectDescription": self.projectDescription,
             "dueDate": self.dueDate,
             "teamId": self.teamId
         }

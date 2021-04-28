@@ -1,8 +1,8 @@
-"""Fixed Migration
+"""The one migration to rule them all
 
-Revision ID: b918c26fe155
-Revises: 3a4b5d443877
-Create Date: 2021-04-27 16:42:30.455882
+Revision ID: 3a0669bb5312
+Revises: 
+Create Date: 2021-04-28 11:45:16.436405
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b918c26fe155'
-down_revision = '3a4b5d443877'
+revision = '3a0669bb5312'
+down_revision = None
 branch_labels = None
 depends_on = None
 
