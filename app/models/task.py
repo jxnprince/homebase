@@ -1,9 +1,6 @@
 from .db import db
 
 
-
-
-
 class Task(db.Model):
     __tablename__ = "tasks"
 
@@ -19,9 +16,13 @@ class Task(db.Model):
     user = db.relationship("User", back_populates="tasks")
     project = db.relationship("Project", back_populates="tasks")
 
-
-# billing_address_id = Column(Integer, ForeignKey("address.id"))
-#     shipping_address_id = Column(Integer, ForeignKey("address.id"))
-
-#     billing_address = relationship("Address", foreign_keys=[billing_address_id])
-#     shipping_address = relationship("Address", foreign_keys=[shipping_address_id])
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "taskName": self.taskName,
+            "taskBody": self.taskBody,
+            "dueDate": self.dueDate,
+            "completed": self.completed,
+            "assignedUserId": self.assignedUserId,
+            "projectId": self.projectId
+        }

@@ -13,3 +13,12 @@ class Comment(db.Model):
 
     project = db.relationship("Project", back_populates="comments")
     user = db.relationship("User", back_populates="comments")
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "commentBody": self.commentBody,
+            "createdAt": self.createdAt,
+            "projectId": self.projectId,
+            "userId": self.userId
+        }
