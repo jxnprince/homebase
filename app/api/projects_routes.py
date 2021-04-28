@@ -13,9 +13,10 @@ from wtforms.fields import StringField, IntegerField, DateField, BooleanField, S
 
 project_routes = Blueprint('projects', __name__)
 
-#"homebase/users/:id/teams/:id/projects/:id"
-#GET
-#renders project, team members associated, tasks, and the messageboard associated with the project
+#  "homebase/users/:id/teams/:id/projects/:id"
+#  GET
+#  renders project, team members associated, tasks, and the messageboard associated with the project
+
 @project_routes.route('/users/<int:user_Id>/teams/<int:team_Id>/projects/<int:project_Id>', methods=['GET'])
 def get_projects():
     project = Project.query.get(project_Id)
@@ -32,24 +33,24 @@ def get_projects():
         "comments": project.to_dict()
     }
 
-#"homebase/users/:id/teams/:id/projects/"
-#POST
-#renders a modal with a form for creating a project.  Appears on team page
+# "homebase/users/:id/teams/:id/projects/"
+# POST
+# renders a modal with a form for creating a project.  Appears on team page
 
-#"homebase/users/:id/teams/:id/projects/:id/delete"
-#Delete
-    # all associated tasks.projectId
-    # messageboard comments.projectId
-    # Deletes selected Project
+# "homebase/users/:id/teams/:id/projects/:id/delete"
+# Delete
+    #  all associated tasks.projectId
+    #  messageboard comments.projectId
+    #  Deletes selected Project
 
-#"homebase/users/:id/teams/:id/projects/:id/edit"
-#PATCH
-#renders a modal with a form for creating a project with prepopulated forms.
+# "homebase/users/:id/teams/:id/projects/:id/edit"
+# PATCH
+# renders a modal with a form for creating a project with prepopulated forms.
 
-#"homebase/users/:id/teams/:id/projects/:id/comments"
-#POST
-#Posts a comment to the message board with timestamp
+# "homebase/users/:id/teams/:id/projects/:id/comments"
+# POST
+# Posts a comment to the message board with timestamp
 
-#"homebase/users/:id/teams/:id/projects/:id/comments/:id/delete"
-#DELETE
-#Deletes a comment from the message board
+# "homebase/users/:id/teams/:id/projects/:id/comments/:id/delete"
+# DELETE
+# Deletes a comment from the message board
