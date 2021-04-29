@@ -26,13 +26,29 @@ const loadTeam = (team) => {
     }
 }
 
+export const teamPost = (userId, payload) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/teams`, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    if (!response.ok) throw response;
+    const team = await response.json();
+    dispatch(addTeam(team))
+    return team;
+  }
+
 const initialState = { team: null, teams: null };
 
 const teamsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case ADD_TEAM:
-            return { team: action.payload };
+            newState = Object.assign({}, state);
+            newState.team = action.payload
+            return newState
         case REMOVE_TEAM:
             return { team: null };
         case LOAD_TEAM:
