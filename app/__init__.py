@@ -4,13 +4,18 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
+
 # from .api.dashboard_routes import dashboard_routes
+
 from .api.project_routes import project_routes
 from .api.task_routes import task_routes
+from .api.projects_routes import team_routes
+from .api.splash import splash_routes
+
+
 
 from .seeds import seed_commands
 
@@ -32,10 +37,14 @@ def load_user(id):
 app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
+app.register_blueprint(splash_routes, url_prefix='/api/home')
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(project_routes, url_prefix='/api/projects')
+
 app.register_blueprint(task_routes, url_prefix='/api/tasks')
+app.register_blueprint(team_routes, url_prefix='/api')
+
 db.init_app(app)
 Migrate(app, db)
 
