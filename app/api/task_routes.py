@@ -44,7 +44,8 @@ def show_task(id):
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/"
 # GET 
-# Render ten tasks organized by due date decending** (DUE SOONEST FIRST)
+# Render ten tasks organized by due date decending** (DUE SOONEST FIRST) 
+#is this ascending or descending?
 @task_routes.route("/tasks/<int:dueDate>", methods=["GET"])
 # @login.required
 def get_all_tasks(id)
