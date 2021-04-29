@@ -53,9 +53,18 @@ def teams_post(id):
     return "Oops, something went wrong!"
 
 
-@team_routes.route('/homebase/users/<int:id>/teams/<int:teamId>/delete', methods=['DELETE'])
+@team_routes.route('/users/<int:id>/teams/<int:teamId>/delete', methods=['DELETE'])
 def teams_delete(id, teamId):
-    team = Team.query.get(id)
+    team = Team.query.get(teamId)
+    projects = team.projects
+    for project in projects:
+        comments = project.comments
+        for comment in comments:
+            db.session.delete(comment)
+        tasks = project.tasks
+        for task in tasks:
+            db.session.delete(task)
+        db.session.delete(project)
     db.session.delete(team)
     db.session.commit()
     return (f'Team: {team.teamName} was Deleted')
