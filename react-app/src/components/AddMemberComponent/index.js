@@ -8,13 +8,13 @@ import { memberPost } from '../../store/team';
 const AddMemberComponent = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const [memberUsername, setMemberUsername] = useState("");
+    const [teamMember, setTeamMember] = useState("");
     const {teamId} = useParams()
 
     const handleSubmit= async (e) => {
       e.preventDefault();
       const payload = {
-          memberName
+          teamMember
         };
       await dispatch(memberPost(user.id, teamId, payload));
     };
@@ -22,12 +22,12 @@ const AddMemberComponent = () => {
     return (
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Enter username of desired team member.</label>
+          <label>Enter username of desired team member:</label>
           <input
             type="text"
-            name="setTeamName"
-            onChange={(e) => setTeamName(e.target.value)}
-            value={memberName}
+            name="teamMember"
+            onChange={(e) => setTeamMember(e.target.value)}
+            value={teamMember}
             required
           ></input>
         </div>
