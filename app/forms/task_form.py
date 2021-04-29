@@ -8,5 +8,5 @@ class CreateTaskForm(FlaskForm):
     taskName = StringField("Task Name", [DataRequired()])
     taskBody = StringField("Description")
     dueDate = DateTimeField("Due Date")
-	completed = BooleanField("Completed")
-	
+    completed = BooleanField("Completed")
+    assignedUserId = SelectField("Assigned To", coerce=int)
