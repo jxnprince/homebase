@@ -13,10 +13,12 @@ from ..forms.comment_form import CommentForm
 
 project_routes = Blueprint('projects', __name__)
 
+
 #"homebase/users/:id/teams/:id/projects/:id"
 #GET
 #renders project, team members associated, tasks, and the messageboard associated with the project
 @project_routes.route('/<int:id>/teams/<int:id2>/user/<int:id3>', methods=['GET'])
+
 def get_projects(id):
     project = Project.query.get(id)
     team = Team.query.get(project.teamId)
@@ -30,6 +32,7 @@ def get_projects(id):
         "comments": [comment.to_dict() for comment in comments],
         "users": [user.to_dict() for user in usersOnTeam],
     }
+
 
 #"homebase/users/:id/teams/:id/projects/"
 #POST
@@ -102,3 +105,4 @@ def delete_comment(id):
     db.session.delete(comment)
     db.session.commit()
     return (f'Comment was Deleted')
+
