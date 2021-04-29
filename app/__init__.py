@@ -9,8 +9,8 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 
 # from .api.dashboard_routes import dashboard_routes
-from .api.projects_routes import project_routes
-from .api.projects_routes import team_routes
+from .api.project_routes import project_routes
+from .api.team_routes import team_routes
 from .api.splash import splash_routes
 
 
@@ -37,8 +37,8 @@ app.config.from_object(Config)
 app.register_blueprint(splash_routes, url_prefix='/api/home')
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-app.register_blueprint(project_routes, url_prefix='/api/projects')
 app.register_blueprint(team_routes, url_prefix='/api')
+app.register_blueprint(project_routes, url_prefix='/api/projects')
 db.init_app(app)
 Migrate(app, db)
 

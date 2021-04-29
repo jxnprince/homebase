@@ -50,7 +50,12 @@ def teams_post(id):
         db.session.add(team)
         db.session.commit()
         return team.to_dict()
+    return "Oops, something went wrong!"
 
 
-# @team_routes.route('/homebase/users/<int:id>/teams/<int:teamId>/delete', methods=['DELETE'])
-# def teams_delete(id, teamId):
+@team_routes.route('/homebase/users/<int:id>/teams/<int:teamId>/delete', methods=['DELETE'])
+def teams_delete(id, teamId):
+    team = Team.query.get(id)
+    db.session.delete(team)
+    db.session.commit()
+    return (f'Team: {team.teamName} was Deleted')
