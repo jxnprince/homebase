@@ -1,3 +1,5 @@
+import { csrfFetch } from 'react';
+
 const SET_COMMENTS = "comments/set";
 const ADD_COMMENT = "comments/add";
 
@@ -16,3 +18,12 @@ export const addReview = (comments) => {
     payload: comments,
   };
 };
+
+export const getComments = () async (dispatch) => {
+    const response = await csrfFetch('');
+    if(!response.ok){
+        throw response;
+    }
+    const comments = await response.json();
+    dispatch(setComments(comments));
+}
