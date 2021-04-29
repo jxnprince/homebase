@@ -103,5 +103,5 @@ dist
 # TernJS port file
 .tern-port
 
-__pycache__
+/__pycache__
 .devcontainer
