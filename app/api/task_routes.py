@@ -36,14 +36,22 @@ def create_task(teamId):
 # Render all information about a singular task as well as host edit and delete buttons
 @task_routes.route("/tasks/<int:taskId>", methods=["GET"])
 # @login.required
-
+def show_task(id):
+    task = Task.query.get(Task.taskId)
+    return {
+        "task": task.to_dict()
+    }
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/"
 # GET 
 # Render ten tasks organized by due date decending** (DUE SOONEST FIRST)
 @task_routes.route("/tasks/<int:dueDate>", methods=["GET"])
 # @login.required
+def get_all_tasks(id)
+    taskList = Task.query.filter(Task.dueDate == dueDate).all()
+return {
 
+}
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/:id"
 # Patch 
