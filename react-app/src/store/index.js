@@ -1,13 +1,16 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import session from "./session";
-import teamsReducer from "./team";
+import {createStore, combineReducers, applyMiddleware, compose } from "redux";
+import thunk from 'redux-thunk';
+import session from './session';
+import TeamsReducer from './team'
+import ProjectsReducer from './project'
 import commentsReducer from "./comments";
 
+
 const rootReducer = combineReducers({
-  session,
-  teams: teamsReducer,
-  comments: commentsReducer,
+    session,
+    teams: TeamsReducer,
+    projects: ProjectsReducer,
+    comments: commentsReducer,
 });
 
 let enhancer;

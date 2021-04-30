@@ -10,8 +10,14 @@ const addTeam = (team) => ({
     payload: team
 })
 
-const removeTeam = () => ({
-    type: REMOVE_TEAM
+const removeTeam = (team) => ({
+    type: REMOVE_TEAM,
+    payload: team
+})
+
+const addTeammate = (teammate) => ({
+    type: ADD_TEAMMATE,
+    payload: teammate
 })
 
 const addTeammate = () => ({
@@ -39,22 +45,15 @@ const loadTeam = (team) => {
     }
 }
 
-export const teamPost = (userId, payload) => async dispatch => {
-    const response = await fetch(`/api/users/${userId}/teams`, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-    if (!response.ok) throw response;
-    const teammate = await response.json();
-    dispatch(addTeammate(teammate))
-    return teammate;
+const loadTeammates = (teammates) => {
+    return {
+      type: LOAD_TEAMMATES,
+      payload: teammates,
+    }
 }
 
-export const memberPost = (userId, teamId, payload) => async dispatch => {
-    const response = await fetch(`/api//users/${userId}/teams/${teamId}/addperson`, {
+export const teamPost = (userId, payload) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/teams`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -67,9 +66,58 @@ export const memberPost = (userId, teamId, payload) => async dispatch => {
     return team;
 }
 
+export const memberPost = (userId, teamId, payload) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/teams/${teamId}/addperson`, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    if (!response.ok) throw response;
+    const teammate = await response.json();
+    dispatch(addTeammate(teammate))
+    return teammate;
+}
+
+export const getTeam = (userId, teamId) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/teams/${teamId}`);
+    if(response.ok) {
+      const team = await response.json();
+      dispatch(loadTeam(team))
+    }
+}
+
+export const getTeammates = (userId, teamId) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/teams/${teamId}/teammates`);
+    if(response.ok) {
+      const teammates = await response.json();
+      dispatch(loadTeammates(teammates))
+    }
+}
+
+export const getTeams = (userId) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/teams`);
+    if(response.ok) {
+      const teams = await response.json();
+      dispatch(loadTeams(teams))
+    }
+}
+
+export const deleteTeam = (userId, teamId) => async dispatch => {
+    const response = await fetch(`/api/users/${userId}/teams/${teamId}/delete`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      const team = await response.json();
+      dispatch(removeTeam(team));
+      return team
+    }
+  };
+
 const initialState = { team: null, teams: null, teammate: null, teammates: null };
 
-const teamsReducer = (state = initialState, action) => {
+const TeamsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case ADD_TEAM:
@@ -88,15 +136,15 @@ const teamsReducer = (state = initialState, action) => {
             return newState
         case ADD_TEAMMATE:
             newState = Object.assign({}, state);
-            newState.team = action.payload
+            newState.teammate = action.payload
             return newState
         case LOAD_TEAMMATES:
             newState = Object.assign({}, state);
-            newState.teammates = action.teammates;
+            newState.teammates = action.payload
             return newState
         default:
             return state;
     }
 }
 
-export default teamsReducer
+export default TeamsReducer

@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class AddMemberForm(FlaskForm):
-    teamMember = StringField('Enter desired username', validators=[DataRequired()])
+    teamMember = StringField('Enter desired username', validators=[DataRequired()])  # noqa
 
 
 class TeamForm(FlaskForm):

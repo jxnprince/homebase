@@ -1,20 +1,12 @@
-# from flask_wtf import FlaskForm
-# from wtforms.fields import (PasswordField, SelectField, SelectMultipleField, StringField, SubmitField, DateTimeField)
-# from wtforms.fields.core import BooleanField, DateTimeField
-# from wtforms.validators import DataRequired
+from flask_wtf import FlaskForm
+from wtforms.fields import (PasswordField, SelectField, StringField, SubmitField, DateTimeField, IntegerField)  # noqa
+from wtforms.fields.core import BooleanField, DateTimeField
+from wtforms.validators import DataRequired
 
 
-<<<<<<< HEAD:app/forms/task_form.py
 class CreateTaskForm(FlaskForm):
-    taskName = StringField("Task Name", [DataRequired()])
+    taskName = StringField("Task Name", validators=[DataRequired()])
     taskBody = StringField("Description")
-    dueDate = DateTimeField("Due Date")
-    completed = BooleanField("Completed")
-    assignedUserId = SelectField("Assigned To", coerce=int)
-=======
-# class CreateTaskForm(FlaskForm):
-#     taskName = StringField("Task Name", [DataRequired()])
-#     taskBody = StringField("Description")
-#     dueDate = DateTimeField("Due Date")
-# 	completed = BooleanField("Completed")
->>>>>>> main:app/forms/create_task.py
+    dueDate = StringField("Due Date", validators=[DataRequired()])
+    assignedUserId = IntegerField("Assigned To", validators=[DataRequired()])
+    # submit = SubmitField("Create new task")
