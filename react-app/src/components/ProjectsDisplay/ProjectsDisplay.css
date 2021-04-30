@@ -1,0 +1,23 @@
+.projects-display-component{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    background-color: #fef0ec;
+    color: #333432;
+    padding: 20px;
+}
+
+.projects-display-container{
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.project-container{
+    border: 2px solid black;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    padding: 5px;
+    color: #f4633e;
+}

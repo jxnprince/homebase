@@ -1,0 +1,23 @@
+.add-member-form{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.add-member-container{
+    color: #333432
+}
+
+.add-member-label{
+    color: #333432
+}
+
+.new-member-submit{
+    background-color: #3396ff;
+    margin-left: 10px;
+}
+
+.new-member-input{
+    margin-left: 10px;
+    height: 40px;
+}

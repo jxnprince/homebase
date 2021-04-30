@@ -8,7 +8,6 @@ import NavigationBar from "./components/NavBarComponent/NavBar";
 import UserDashboard from './components/UserDashboard';
 import TeamDashboard from './components/TeamDashboard';
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
 import MessageBoard from "./components/MessageBoard";
 import User from "./components/User";
 // import { authenticate } from "./services/auth";
@@ -44,23 +43,11 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-        {/* <ProtectedRoute path="/users" exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path="/users/:userId" exact={true} >
-          <User />
-        </ProtectedRoute> */}
         <ProtectedRoute path="/users/:userId/teams" exact={true} >
             <UserDashboard />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true} >
             <TeamDashboard />
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId/teams" exact={true}>
-          <AddTeamComponent />
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true}>
-          <AddMemberComponent />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true}>
           <h1>HomeBase HomePage</h1>

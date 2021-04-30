@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTeammates } from '../../store/team';
+import './TeamMembersDisplay.css'
 
 
 const TeamMembersDisplay = ({teamId, userId}) => {
@@ -12,7 +13,8 @@ const TeamMembersDisplay = ({teamId, userId}) => {
     }, [userId, teamId]);
 
     return (
-        <div>
+        <div className="team-members-container">
+            <h5>Team Members:</h5>
             {teammates && teammates.teammates.map((member) => (
                 <div>
                     <p>{member}</p>

@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getTeam, deleteTeam } from '../../store/team';
 import AddMemberComponent from '../AddMemberComponent'
 import TeamMembersDisplay from "../TeamMembersDisplay";
+import './TeamDashboard.css'
 
 const TeamDashboard = () => {
     const history = useHistory();
@@ -41,13 +42,18 @@ const TeamDashboard = () => {
                     </div>
                 </div>
             }
-            {team && team.projects.map((project) => (
-                <a href={`/users/${userId}/teams/${project.teamId}/projects/${project.id}`}>
-                    <div>
-                        <h1>{project.projectTitle}</h1>
-                    </div>
-                </a>
-            ))}
+            <div className="projects-display-component">
+                <h1>Projects</h1>
+                <div className="projects-display-container">
+                    {team && team.projects.map((project) => (
+                        <a href={`/users/${userId}/teams/${project.teamId}/projects/${project.id}`}>
+                            <div className="project-container">
+                                <h1>{project.projectTitle}</h1>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
         </div>
     )
 
