@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { memberPost, getTeammates } from '../../store/team';
+import './AddMember.css'
 
 
 const AddMemberComponent = () => {
@@ -20,18 +21,19 @@ const AddMemberComponent = () => {
     };
 
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Enter username of desired team member:</label>
+      <form onSubmit={handleSubmit} className="add-member-form">
+        <div className="add-member-container">
+          <label className="add-member-label">New team member's username:</label>
           <input
             type="text"
+            className="new-member-input"
             name="teamMember"
             onChange={(e) => setTeamMember(e.target.value)}
             value={teamMember}
             required
           ></input>
         </div>
-        <button type="submit">Add User</button>
+        <button type="submit" className="new-member-submit">Add User</button>
       </form>
     );
   };

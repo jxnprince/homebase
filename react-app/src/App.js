@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { useDispatch} from "react-redux";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavigationBar from "./components/NavBarComponent/NavBar";
-import UserDashboard from './components/UserDashboard';
-import TeamDashboard from './components/TeamDashboard';
+import UserDashboard from "./components/UserDashboard";
+import TeamDashboard from "./components/TeamDashboard";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import MessageBoard from "./components/MessageBoard";
 // import User from "./components/User";
@@ -44,9 +44,6 @@ function App() {
         <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true} >
             <TeamDashboard />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true}>
-          <h1>HomeBase HomePage</h1>
-        </ProtectedRoute>
         <ProtectedRoute
           path="/users/:userId/teams/:teamId/projects/:projectId"
           exact={true}
@@ -62,10 +59,13 @@ function App() {
         {/* <ProtectedRoute
         path="team/:teamid/project/:projectid/tasks/:taskid"
         exact={true}>
-        </ProtectedRoute> */}
-        <ProtectedRoute> 
-          <h1>Looks like this page doesn't exist...</h1>
-        </ProtectedRoute>
+      </ProtectedRoute> */}
+      <ProtectedRoute path="/" exact={true}>
+        <h1>HomeBase HomePage</h1>
+      </ProtectedRoute>
+      <ProtectedRoute> 
+        <h1>Looks like this page doesn't exist...</h1>
+      </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

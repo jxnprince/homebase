@@ -13,7 +13,7 @@ const AddTaskComponent = () => {
   const [taskName, setTaskName] = useState("");
   const [taskBody, setTaskBody] = useState("");
   let [dueDate, setDueDate] = useState("");
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
   const [assignedUserId, setAssignedUserId] = useState("");
   const { projectId, teamId, taskId } = useParams();
 
@@ -56,6 +56,7 @@ const AddTaskComponent = () => {
           value={taskBody}
           required>
         </textarea>
+
         {/* <label>Due Date</label>
         <DatePicker
           type="text"
@@ -64,6 +65,7 @@ const AddTaskComponent = () => {
           value={ dueDate = date }
           required>
         </DatePicker> */}
+
         <label>assignedUserId</label>
         {/* <select
           type="text"

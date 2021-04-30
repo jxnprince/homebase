@@ -100,14 +100,18 @@ def post_comment(id):
 def get_comments(id):
     project = Project.query.get(id)
     comments = project.comments
-    usernames = []
+    formattedComments = []
     for comment in comments:
-        user = User.query.get(comment.userId)
+        userId = comment.userId
+        com = comment.to_dict()
+        user = User.query.get(userId)
         userString = f'{user.firstname} {user.lastname}'
-        usernames.append(userString)
+        com["username"] = userString
+        formattedComments.append(com)
+
+
     return {
-        "comments": [comment.to_dict() for comment in comments],
-        "users": usernames
+        "comments": formattedComments,
 
     }
 
