@@ -17,3 +17,16 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+@user_routes.route('/<int:id>/user-projects')
+@login_required
+def user_projects(id):
+    user = User.query.get(id)
+    teams = user.teams
+    userProjects = []
+    for team in teams:
+        projects = team.projects
+        for project in projects:
+            userProjects.append(project.to_dict())
+    return {"userProjects": userProjects}

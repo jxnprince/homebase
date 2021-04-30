@@ -34,7 +34,7 @@ def add_member(id, teamId):
         user = User.query.filter_by(username=userName).first()
         team.users.append(user)
         db.session.commit()
-        return 'User Added'
+        return user.to_dict()
     return 'User Not Found'
 
 
@@ -43,6 +43,23 @@ def teams(id):
     user = User.query.get(id)
     teams = user.teams
     return {"teams": [team.to_dict() for team in teams]}
+
+
+@team_routes.route('/users/<int:id>/teams/<int:teamId>')
+def team(id, teamId):
+    team = Team.query.get(teamId)
+    projects = team.projects
+    return {"team": team.to_dict(), "projects": [project.to_dict() for project in projects]}
+
+
+@team_routes.route('/users/<int:id>/teams/<int:teamId>/teammates')
+def teammates(id, teamId):
+    team = Team.query.get(teamId)
+    users = team.users
+    usernames = []
+    for user in users:
+        usernames.append(f'{user.firstname} {user.lastname}')
+    return {"teammates": usernames}
 
 
 @team_routes.route('/users/<int:id>/teams', methods=['POST'])
@@ -65,14 +82,15 @@ def teams_post(id):
 def teams_delete(id, teamId):
     team = Team.query.get(teamId)
     projects = team.projects
-    for project in projects:
-        comments = project.comments
-        for comment in comments:
-            db.session.delete(comment)
-        tasks = project.tasks
-        for task in tasks:
-            db.session.delete(task)
-        db.session.delete(project)
+    if projects:
+        for project in projects:
+            comments = project.comments
+            for comment in comments:
+                db.session.delete(comment)
+            tasks = project.tasks
+            for task in tasks:
+                db.session.delete(task)
+            db.session.delete(project)
     db.session.delete(team)
     db.session.commit()
-    return (f'Team: {team.teamName} was Deleted')
+    return team.to_dict()

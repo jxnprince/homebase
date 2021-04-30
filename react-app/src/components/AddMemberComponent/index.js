@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
-import { memberPost } from '../../store/team';
+import { memberPost, getTeammates } from '../../store/team';
 
 
 const AddMemberComponent = () => {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user);
     const [teamMember, setTeamMember] = useState("");
-    const {teamId} = useParams()
+    const {teamId, userId} = useParams()
 
     const handleSubmit= async (e) => {
       e.preventDefault();
       const payload = {
           teamMember
         };
-      await dispatch(memberPost(user.id, teamId, payload));
+      await dispatch(memberPost(userId, teamId, payload));
+
+      dispatch(getTeammates(userId, teamId))
     };
 
     return (
