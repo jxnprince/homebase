@@ -96,12 +96,19 @@ def post_comment(id):
     else:
         return 'Something is wrong with the /api/projects/comment'
 
-@project_routes.route('<int:id>/comments', methods=['GET'])
+@project_routes.route('/<int:id>/comments', methods=['GET'])
 def get_comments(id):
     project = Project.query.get(id)
     comments = project.comments
+    usernames = []
+    for comment in comments:
+        user = User.query.get(comment.userId)
+        userString = f'{user.firstname} {user.lastname}'
+        usernames.append(userString)
     return {
-        "comments": comments.to_dict()
+        "comments": [comment.to_dict() for comment in comments],
+        "users": usernames
+
     }
 
 

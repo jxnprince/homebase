@@ -1,14 +1,16 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getComments } from "../../store/comments";
+import { getProjectComments } from "../../store/comments";
 
 const MessageBoard = () => {
   const dispatch = useDispatch();
   const teamComments = useSelector((state) => state.comments.teamComments);
-  const currentTeam = useSelector((state) => state.team.currentTeam);
+  const { projectId } = useParams();
+  // const currentTeam = useSelector((state) => state.team.currentTeam);
 
   useEffect(() => {
-    dispatch(getComments(currentTeam.id));
+    dispatch(getProjectComments(projectId));
   });
 
   return (
