@@ -1,7 +1,10 @@
-.color-nav { 
-    background-color: #F9F5C8 
+.whole-nav { 
+    background-color: rgb(240, 240, 218);
+    display: inline-block;
+    box-shadow: 1px 1px #333432 
 }
 
 .nav-item{
-    color: #333432
+    color: #333432;
+
 }
