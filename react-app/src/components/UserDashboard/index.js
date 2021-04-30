@@ -5,6 +5,7 @@ import { getTeams } from '../../store/team';
 import { getUserProjects } from '../../store/project';
 import TeamsDisplay from '../TeamsDisplay'
 import ProjectsDisplay from '../ProjectsDisplay'
+import './UserDashboard.css'
 
 const UserDashboard = () => {
     const dispatch = useDispatch();
@@ -19,21 +20,25 @@ const UserDashboard = () => {
     }, [userId]);
 
     return (
-        <div>
-            <h1>User Dashboard</h1>
-            {user &&
-                <div>
-                    <img src={user.user_avatar}></img>
-                    <p>{user.firstname} {user.lastname}</p>
-                    <p>{user.username}</p>
-                </div>
-            }
-            {teams && userProjects &&
-                <div>
-                <TeamsDisplay teams={teams} userId={userId}/>
-                <ProjectsDisplay userProjects={userProjects} userId={userId}/>
-                </div>
-            }
+        <div className="user-dashboard-container">
+            <div className="user-info-container">
+                {user &&
+                    <div className="user-info-inner-container">
+                        <img src={user.user_avatar} className="user-avatar"></img>
+                        <p className="user-details">{user.firstname} {user.lastname}</p>
+                        <p className="user-details">{user.username}</p>
+                    </div>
+                }
+            </div>
+            <div className="team-projects-container">
+                <h1 className="dashboard-title">User Dashboard</h1>
+                {teams && userProjects &&
+                    <div>
+                    <TeamsDisplay teams={teams} userId={userId}/>
+                    <ProjectsDisplay userProjects={userProjects} userId={userId}/>
+                    </div>
+                }
+            </div>
         </div>
     )
 

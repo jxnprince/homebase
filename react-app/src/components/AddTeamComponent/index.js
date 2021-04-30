@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { teamPost } from '../../store/team';
+import './AddTeam.css'
 
 const AddTeamComponent = () => {
   const history = useHistory();
@@ -24,17 +25,18 @@ const AddTeamComponent = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Team Name</label>
+      <div className="add-team-form">
+        <label className="add-team-label">Team Name:</label>
         <input
           type="text"
           name="setTeamName"
+          className="add-team-input"
           onChange={(e) => setTeamName(e.target.value)}
           value={teamName}
           required
         ></input>
+        <button type="submit" className="add-team-submit">Create Team</button>
       </div>
-      <button type="submit">Create Team</button>
     </form>
   );
 };

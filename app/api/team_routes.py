@@ -49,7 +49,8 @@ def teams(id):
 def team(id, teamId):
     team = Team.query.get(teamId)
     projects = team.projects
-    return {"team": team.to_dict(), "projects": [project.to_dict() for project in projects]}
+    users = team.users
+    return {"team": team.to_dict(), "projects": [project.to_dict() for project in projects], "users": [user.to_dict() for user in users]}
 
 
 @team_routes.route('/users/<int:id>/teams/<int:teamId>/teammates')

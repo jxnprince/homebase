@@ -38,11 +38,11 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path="/users/:userId/teams" exact={true}>
-          <UserDashboard />
+        <ProtectedRoute path="/users/:userId/teams" exact={true} >
+            <UserDashboard />
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true}>
-          <TeamDashboard />
+        <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true} >
+            <TeamDashboard />
         </ProtectedRoute>
 
         <ProtectedRoute

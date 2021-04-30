@@ -1,0 +1,23 @@
+.teams-display-component{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    background-color: #eff6fb;
+    color: #333432;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.teams-display-container{
+    display: flex;
+    flex-direction: row;
+    overflow:scroll;
+}
+
+.team-container{
+    border: 2px solid black;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    padding: 5px;
+}

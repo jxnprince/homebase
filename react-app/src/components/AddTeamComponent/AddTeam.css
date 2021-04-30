@@ -1,0 +1,24 @@
+.add-team-form{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.add-team-label{
+    font-size: 20px;
+}
+
+.add-team-input{
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.add-team-submit{
+    height: 40px;
+    background-color: #3396ff;
+    opacity: 80%;
+}
