@@ -20,6 +20,17 @@ const addTeammate = (teammate) => ({
     payload: teammate
 })
 
+const addTeammate = () => ({
+    type: ADD_TEAMMATE
+})
+
+const loadTeammates = (teammates) => {
+    return {
+      type: LOAD_TEAMMATES,
+      teammates: teammates,
+    }
+}
+
 const loadTeams = (teams) => {
     return {
       type: LOAD_TEAMS,

@@ -96,10 +96,25 @@ def post_comment(id):
     else:
         return 'Something is wrong with the /api/projects/comment'
 
+@project_routes.route('/<int:id>/comments', methods=['GET'])
+def get_comments(id):
+    project = Project.query.get(id)
+    comments = project.comments
+    usernames = []
+    for comment in comments:
+        user = User.query.get(comment.userId)
+        userString = f'{user.firstname} {user.lastname}'
+        usernames.append(userString)
+    return {
+        "comments": [comment.to_dict() for comment in comments],
+        "users": usernames
 
-# "homebase/users/:id/teams/:id/projects/:id/comments/:id/delete"
-# DELETE
-# Deletes a comment from the message board
+    }
+
+
+#"homebase/users/:id/teams/:id/projects/:id/comments/:id/delete"
+#DELETE
+#Deletes a comment from the message board
 @project_routes.route('/comment/<int:id>/delete', methods=['DELETE'])
 def delete_comment(id):
     comment = Comment.query.get(id)
