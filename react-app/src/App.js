@@ -3,8 +3,8 @@ import { useDispatch} from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import AddTeamComponent from './components/AddTeamComponent';
-import AddMemberComponent from './components/AddMemberComponent';
+import UserDashboard from './components/UserDashboard';
+import TeamDashboard from './components/TeamDashboard';
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
@@ -45,10 +45,10 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId/teams" exact={true} >
-          <AddTeamComponent />
+            <UserDashboard />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true} >
-          <AddMemberComponent />
+            <TeamDashboard />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true}>
           <h1>My Home Page</h1>

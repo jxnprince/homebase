@@ -105,4 +105,3 @@ def delete_comment(id):
     db.session.delete(comment)
     db.session.commit()
     return (f'Comment was Deleted')
-
