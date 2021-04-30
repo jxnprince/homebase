@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
 import { teamPost } from '../../store/team';
 
 const AddTeamComponent = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
   const [teamName, setTeamName] = useState("");
@@ -13,7 +14,12 @@ const AddTeamComponent = () => {
     const payload = {
         teamName
       };
-    await dispatch(teamPost(user.id, payload));
+
+    let createdTeam = await dispatch(teamPost(user.id, payload));
+
+    if (createdTeam) {
+        history.push(`/users/${user.id}/teams/${createdTeam.id}`);
+    }
   };
 
   return (
