@@ -14,11 +14,10 @@ from ..forms.comment_form import CommentForm
 project_routes = Blueprint('projects', __name__)
 
 
-#"homebase/users/:id/teams/:id/projects/:id"
-#GET
-#renders project, team members associated, tasks, and the messageboard associated with the project
-@project_routes.route('/<int:id>/teams/<int:id2>/user/<int:id3>', methods=['GET'])
-
+# "homebase/users/:id/teams/:id/projects/:id"
+# GET
+# renders project, team members associated, tasks, and the messageboard associated with the project # noqa
+@project_routes.route('/<int:id>/teams/<int:id2>/user/<int:id3>', methods=['GET'])  # noqa
 def get_projects(id):
     project = Project.query.get(id)
     team = Team.query.get(project.teamId)
@@ -34,10 +33,10 @@ def get_projects(id):
     }
 
 
-#"homebase/users/:id/teams/:id/projects/"
-#POST
-#renders a modal with a form for creating a project.  Appears on team page
-@project_routes.route('create/teams/<int:teamId>', methods=['post'])
+# "homebase/users/:id/teams/:id/projects/"
+# POST
+# renders a modal with a form for creating a project.  Appears on team page
+@project_routes.route('create/teams/<int:teamId>', methods=['POST'])
 def post_project(teamId):
     form = ProjectForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -51,7 +50,8 @@ def post_project(teamId):
     else:
         return 'Something is wrong with the /api/projects/create route'
 
-#"homebase/users/:id/teams/:id/projects/:id/delete"
+
+# "homebase/users/:id/teams/:id/projects/:id/delete"
 @project_routes.route('<int:id>/delete', methods=['DELETE'])
 def delete_project(id):
     project = Project.query.get(id)
@@ -59,27 +59,27 @@ def delete_project(id):
     db.session.commit()
     return (f'Project: {project.projectTitle} was Deleted')
 
-#"homebase/users/:id/teams/:id/projects/:id/edit"
-#PATCH
-#renders a modal with a form for creating a project with prepopulated forms.
+
+# "homebase/users/:id/teams/:id/projects/:id/edit"
+# PATCH
+# renders a modal with a form for creating a project with prepopulated forms.
 @project_routes.route('<int:id>/edit', methods=['PATCH'])
 def edit_project(id):
     project = Project.query.get(id)
     teamId = project.teamId
-    db.session.delete(project)
-    db.session.commit()
-    projectTitle = request.form['projectTitle']
-    projectDescription = request.form['projectDescription']
-    dueDate = request.form['dueDate']
-    project = Project(projectTitle=projectTitle, projectDescription=projectDescription, dueDate=dueDate,teamId=teamId)
-    db.session.add(project)
-    db.session.commit()
-    return f'{projectTitle} was successfully updated'
+    if project:
+        project.projectTitle = request.form['projectTitle']
+        project.projectDescription = request.form['projectDescription']
+        project.dueDate = request.form['dueDate']
+        db.session.add(project)
+        db.session.commit()
+        return f'{project.projectTitle} was successfully updated'
+    return {"project edit failure": "Incorrect field"}, 400
 
 
-#"homebase/users/:id/teams/:id/projects/:id/comments"
-#POST
-#Posts a comment to the message board with timestamp
+# "homebase/users/:id/teams/:id/projects/:id/comments"
+# POST
+# Posts a comment to the message board with timestamp
 @project_routes.route('<int:id>/comment', methods=['POST'])
 def post_comment(id):
     form = CommentForm()
@@ -96,13 +96,13 @@ def post_comment(id):
     else:
         return 'Something is wrong with the /api/projects/comment'
 
-#"homebase/users/:id/teams/:id/projects/:id/comments/:id/delete"
-#DELETE
-#Deletes a comment from the message board
+
+# "homebase/users/:id/teams/:id/projects/:id/comments/:id/delete"
+# DELETE
+# Deletes a comment from the message board
 @project_routes.route('/comment/<int:id>/delete', methods=['DELETE'])
 def delete_comment(id):
     comment = Comment.query.get(id)
     db.session.delete(comment)
     db.session.commit()
     return (f'Comment was Deleted')
-

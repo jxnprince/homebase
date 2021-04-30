@@ -8,84 +8,84 @@ from ..models.user import User
 from ..models.task import Task
 from ..models.comment import Comment
 from ..models.db import db
+from flask_login import current_user
 
 
 task_routes = Blueprint("tasks", __name__)
 
+
 # "homebase/users/:id/teams/:id/projects/:id/tasks/create"
 # POST - appears on project page in form modal
-@task_routes.route("create/task/<int:taskId>", methods=["POST"])
-# @login.required
-def create_task(teamId):
+@task_routes.route("/projects/<int:id>/create/", methods=["POST"])
+def create_task(id):
     form = CreateTaskForm()
-    team = Team.query.get(teamId)
     form['csrf_token'].data = request.cookies['csrf_token']
-    form.user.choices = [(user.id, user.firstname, user.lastname) for user in team.users]
+    project = Project.query.get(id)
+    team = Team.query.get(project.teamId)
+    # form.assignedUserId.choices = [(user.id, f'{user.firstname} {user.lastname}') for user in team.users]  # noqa
+    print(form.data)
     if form.validate_on_submit():
         data = Task()
         form.populate_obj(data)
-        data.userId = userId
-        db.session.add(task)
+        data.projectId = project.id
+        data.completed = False
+        db.session.add(data)
         db.session.commit()
         return data.to_dict()
     else:
-        return 'Something has gone wrong. Task not created. '
+        return 'From not validated. Task not created.'
+
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/:id"
-# GET 
-# Render all information about a singular task as well as host edit and delete buttons
-@task_routes.route("/tasks/<int:taskId>", methods=["GET"])
-# @login.required
+# GET
+# Render all information about a singular task as well as host edit and delete buttons  # noqa
+@task_routes.route("/<int:id>", methods=["GET"])
 def show_task(id):
-    task = Task.query.get(Task.taskId)
-    return {
-        "task": task.to_dict()
-    }
+    task = Task.query.get(id)
+    return task.to_dict()
+
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/"
-# GET 
-# Render ten tasks organized by due date decending** (DUE SOONEST FIRST) 
-#is this ascending or descending?
-@task_routes.route("/tasks/<int:dueDate>", methods=["GET"])
+# GET
+# Render ten tasks organized by due date decending** (DUE SOONEST FIRST)
+# is this ascending or descending?
+@task_routes.route("/projects/<int:id>", methods=["GET"])
 # @login.required
-def get_all_tasks(id)
-    taskList = Task.query.filter(Task.dueDate == dueDate).all()
-return {
+def get_all_tasks(id):
+    project = Project.query.get(id)
+    projectTasks = Task.query.filter(Task.projectId == id).all()
 
-}
+    return {
+        "Project Tasks": [task.to_dict() for task in projectTasks]
+        }
+
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/:id"
-# Patch 
+# Patch
 # renders a modal with a form for creating a task with prepopulated forms.
-@task_routes.route("<int:id>/edit", methods=["PATCH"])
-# @login.required
+# @login_required
+@task_routes.route("/<int:id>/edit", methods=["PATCH"])
 def edit_task(id):
     task = Task.query.get(id)
-    userId = task.userId
-    db.session.delete(task)
-    db.session.commit()
-    taskName = request.form['taskTitle']
-    taskBody = request.form['taskDescription']
-    dueDate = request.form['dueDate']
-    completed = request.form['completed']
-    assignedUserId = request.form['assignedUserId']
-    task = Task(taskName=taskName, taskBody=taskBody, dueDate=dueDate,taskId=taskId)
-    db.session.add(task)
-    db.session.commit()
-    return f'{Task} was successfully updated'
-else:
-    return 'Edit failed, please try again.'
+    if task:
+        task.taskName = request.form['taskName']
+        task.taskBody = request.form['taskBody']
+        task.dueDate = request.form['dueDate']
+        task.assignedUserId = request.form['assignedUserId']
+        db.session.add(task)
+        db.session.commit()
+        return f'{Task} was successfully updated'
+    return {"Errors": 'Bad'}, 400
+
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/:id"
-# Delete 
+# Delete
     # Set tasks.assignedUserId to Null
     # Delete's specified task
-@task_routes.route("<int:id>/delete", methods=['DELETE'])
+@task_routes.route("/<int:id>/delete", methods=['DELETE'])
 # @login.required
 def delete_task(id):
     task = Task.query.get(id)
     db.session.delete(task)
     db.session.commit()
-    return f'Task: {task.taskName} was Deleted'
-else:
-    return f'Task: {task.taskName} was Not Deleted.'
+    return f'Task: "{task.taskName}" was Deleted'
