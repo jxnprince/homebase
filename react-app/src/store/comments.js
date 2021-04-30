@@ -1,16 +1,16 @@
-const SET_COMMENTS = "comments/set";
-const ADD_COMMENT = "comments/add";
+const SET_COMMENTS = "comments/setProjectComments";
+const ADD_COMMENT = "comments/addProjectComments";
 
-const initialState = {};
 //actions
-export const setProjectComments = (comments) => {
+
+const setProjectComments = (comments) => {
   return {
     type: SET_COMMENTS,
     payload: comments,
   };
 };
 
-export const addProjectComments = (comments) => {
+const addProjectComments = (comments) => {
   return {
     type: ADD_COMMENT,
     payload: comments,
@@ -26,24 +26,29 @@ export const getProjectComments = (projectId) => async (dispatch) => {
   console.log(comments);
   dispatch(setProjectComments(comments));
 };
+const initialState = { comments: null };
+const commentsReducer = (state = initialState, action) => {
+  let newState;
+  switch (action.type) {
+    case SET_COMMENTS:
+      newState = Object.assign({}, state);
+      newState.comments = action.payload;
 
-const commentsReducer = (comments = initialState, action) => {
-  // switch (action.type) {
-  //   case SET_COMMENTS:
-  //     const commentsPayload = action.payload;
-  //     const newComment = {};
-  //     for (const comment of commentsPayload) {
-  //       newComment[comment.id] = comment;
-  //     }
-  //     return newComment;
-  //   case ADD_COMMENT:
-  //     const newState = Object.assign({}, comments);
-  //     newState.userComments = action.payload;
-  //     return newState;
-  //   default:
-  //     return comments;
-  // }
-  return "BubbleBop";
+      return newState;
+    // const commentsPayload = action.payload;
+    // const newComment = {};
+    // for (const comment of commentsPayload) {
+    //   newComment[comment.id] = comment;
+    // }
+    // return newComment;
+    case ADD_COMMENT:
+      newState = Object.assign({}, state);
+      newState.userComments = action.payload;
+      return newState;
+    default:
+      return state;
+  }
+  // return "BubbleBop";
 };
 
 export default commentsReducer;
