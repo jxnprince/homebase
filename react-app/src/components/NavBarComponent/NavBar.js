@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NavBar.css'
 import LogoutButton from '../auth/LogoutButton';
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
 import  { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/session"
 
 
 const NavigationBar = () => {
 
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
+  const guestLogin = () => dispatch(login("demo@aa.io", "password"))
 
   if (!user){ 
     return (
-      <Navbar className='color-nav' fixed='top'>
+      <Navbar className='whole-nav' fixed='top'>
         <Container>
               <Nav>
                 <Nav.Link href='/' exact={true} activeClassName="active">HomeBase</Nav.Link>
                 <Nav.Link href='/login' exact={true} activeClassName="active">Login</Nav.Link>
-                <Nav.Link href='/guest' exact={true} activeClassName="active">Guest Login</Nav.Link>
+                <Nav.Link onClick={guestLogin} exact={true} activeClassName="active">Guest Login</Nav.Link>
                 <Nav.Link href='/sign-up' exact={true} activeClassName="active">Sign Up</Nav.Link>
               </Nav>
         </Container>
@@ -25,12 +27,12 @@ const NavigationBar = () => {
     )
   }else{ 
     return (
-      <Navbar className='color-nav' fixed='top'>
+      <Navbar className='whole-nav' fixed='top'>
         <Container>
               <Nav>
                 <Nav.Link href='/' exact={true} activeClassName="active">HomeBase</Nav.Link>
-                <NavDropdown title={user.username} id="collasible-nav-dropdown">
-                  <NavDropdown.Item href='/'>{user.username}'s Dashboard</NavDropdown.Item>
+                <NavDropdown href='/' title={user.username} id="collasible-nav-dropdown">
+                  <NavDropdown.Item href={`/users/${user.id}`}>{user.username}'s Dashboard</NavDropdown.Item>
                   <NavDropdown.Item title='Logout'><LogoutButton /></NavDropdown.Item>
                 </NavDropdown>
               </Nav>

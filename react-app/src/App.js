@@ -9,12 +9,12 @@ import UserDashboard from "./components/UserDashboard";
 import TeamDashboard from "./components/TeamDashboard";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import MessageBoard from "./components/MessageBoard";
-import User from "./components/User";
+// import User from "./components/User";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
-import { Navbar } from "react-bootstrap";
-import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+import AddTaskComponent from "../src/components/AddTaskComponent/index"
+
+
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function App() {
   }
   return (
     <BrowserRouter>
-      {/* <NavigationBar /> */}
+      <NavigationBar />
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm />
@@ -44,19 +44,28 @@ function App() {
         <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true} >
             <TeamDashboard />
         </ProtectedRoute>
-
         <ProtectedRoute
           path="/users/:userId/teams/:teamId/projects/:projectId"
           exact={true}
-        >
+          >
           <MessageBoard />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true}>
-          <h1>HomeBase HomePage</h1>
+        <ProtectedRoute
+        path="/users/:userId/teams/:teamId/projects/:projectId/tasks/create"
+        exact={true}
+        >
+          <AddTaskComponent />
         </ProtectedRoute>
-        <ProtectedRoute>
-          <h1>Looks like this page doesn't exist...</h1>
-        </ProtectedRoute>
+        {/* <ProtectedRoute
+        path="team/:teamid/project/:projectid/tasks/:taskid"
+        exact={true}>
+      </ProtectedRoute> */}
+      <ProtectedRoute path="/" exact={true}>
+        <h1>HomeBase HomePage</h1>
+      </ProtectedRoute>
+      <ProtectedRoute> 
+        <h1>Looks like this page doesn't exist...</h1>
+      </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
