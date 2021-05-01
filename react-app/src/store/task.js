@@ -120,6 +120,8 @@ const TasksReducer = (state = initialState, action) =>{
       newState = Object.assign({}. state);
       newState.task = action.payload
       return newState;
+    default:
+      return state;
   }
 }
 

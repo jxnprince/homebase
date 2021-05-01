@@ -21,10 +21,7 @@ const addTeammate = (teammate) => ({
     payload: teammate
 })
 
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 const loadTeams = (teams) => {
   return {
     type: LOAD_TEAMS,
