@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import { getProject } from '../../store/project';
 import TeamMembersDisplay from "../TeamMembersDisplay";
+import MessageBoard from '../MessageBoard'
 import './ProjectDashboard.css'
 
 const ProjectDashboard = () => {
@@ -58,6 +59,7 @@ const ProjectDashboard = () => {
                         ))}
                     </div>
                 </div>
+                <MessageBoard />
             </div>
         </div>
     )
