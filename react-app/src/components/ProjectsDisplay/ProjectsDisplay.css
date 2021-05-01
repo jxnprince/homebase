@@ -1,10 +1,11 @@
 .projects-display-component{
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    width: 800px;
     background-color: #fef0ec;
     color: #333432;
     padding: 20px;
+    margin-top: 20px;
 }
 
 .projects-display-container{
