@@ -1,0 +1,12 @@
+.board-container {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  width: 25%;
+  overflow: scroll;
+  border-radius: 4px;
+}
+
+.comment-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 50%;
+}
