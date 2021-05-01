@@ -1,5 +1,5 @@
 const SET_COMMENTS = "comments/setProjectComments";
-const ADD_COMMENT = "comments/addProjectComments";
+const ADD_COMMENT = "comments/addProjectComment";
 
 //actions
 
@@ -10,10 +10,10 @@ const setProjectComments = (comments) => {
   };
 };
 
-const addProjectComments = (comments) => {
+const addProjectComment = (comment) => {
   return {
     type: ADD_COMMENT,
-    payload: comments,
+    payload: comment,
   };
 };
 
@@ -26,8 +26,26 @@ export const getProjectComments = (projectId) => async (dispatch) => {
   console.log(comments);
   dispatch(setProjectComments(comments));
 };
-const initialState = { comments: null };
-const commentsReducer = (state = initialState, action) => {
+
+export const addComment = (projectId, payload) => async (dispatch) => {
+  const response = await fetch(`/api/projects/${projectId}/comment`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+  if (!response.ok) {
+    throw response;
+  }
+  const comment = await response.json();
+  console.log(comment);
+  dispatch(addProjectComment(comment));
+  return comment;
+};
+
+const initialState = { comments: null, comment: null };
+const CommentsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case SET_COMMENTS:
@@ -43,7 +61,7 @@ const commentsReducer = (state = initialState, action) => {
     // return newComment;
     case ADD_COMMENT:
       newState = Object.assign({}, state);
-      newState.userComments = action.payload;
+      newState.comment = action.payload;
       return newState;
     default:
       return state;
@@ -51,4 +69,4 @@ const commentsReducer = (state = initialState, action) => {
   // return "BubbleBop";
 };
 
-export default commentsReducer;
+export default CommentsReducer;

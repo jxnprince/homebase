@@ -1,0 +1,24 @@
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 400px;
+  overflow: scroll;
+  border-radius: 4px;
+  background-color: white;
+  padding: 5px 2px 5px 2px;
+}
+h1 {
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 5px;
+}
+
+.comment-container {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 100%;
+  height: 50%;
+  margin-right: 25px;
+  margin-left: 25px;
+}
