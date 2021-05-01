@@ -16,15 +16,10 @@ const removeTeam = (team) => ({
 });
 
 const addTeammate = (teammate) => ({
+  type: ADD_TEAMMATE,
+  payload: teammate,
+});
 
-    type: ADD_TEAMMATE,
-    payload: teammate
-})
-
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 const loadTeams = (teams) => {
   return {
     type: LOAD_TEAMS,
