@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import AddCommentComponent from "../AddCommentComponent";
 import { getProjectComments } from "../../store/comments";
 import "./MessageBoard.css";
 
@@ -26,6 +27,7 @@ const MessageBoard = () => {
           </div>
         </div>
       ))}
+      <AddCommentComponent />
     </div>
   );
 };

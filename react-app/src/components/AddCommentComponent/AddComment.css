@@ -1,0 +1,14 @@
+.form-container {
+  display: flex;
+  align-items: center;
+}
+
+.comment-space {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  height: 50px;
+}
+.add-comment-btn {
+  border-radius: 10px;
+}

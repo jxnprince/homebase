@@ -7,4 +7,4 @@ from flask_login import current_user
 
 class CommentForm(FlaskForm):
     commentBody = StringField('Comment', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    # submit = SubmitField('Submit')
