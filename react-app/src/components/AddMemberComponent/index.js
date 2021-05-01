@@ -23,7 +23,7 @@ const AddMemberComponent = () => {
     return (
       <form onSubmit={handleSubmit} className="add-member-form">
         <div className="add-member-container">
-          <label className="add-member-label">New team member's username:</label>
+          <label className="add-member-label">New Member's Username:</label>
           <input
             type="text"
             className="new-member-input"
@@ -32,8 +32,8 @@ const AddMemberComponent = () => {
             value={teamMember}
             required
           ></input>
+          <button type="submit" className="new-member-submit">Add User</button>
         </div>
-        <button type="submit" className="new-member-submit">Add User</button>
       </form>
     );
   };

@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from 'react-router-dom'
 import { postTask } from '../../store/task';
 import { getTeam } from '../../store/team';
-// import DatePicker from "react-datepicker";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
+import "./taskForm.css"
 
 const AddTaskComponent = () => {
   const history = useHistory();
@@ -12,14 +14,14 @@ const AddTaskComponent = () => {
   const team = useSelector(state => state.teams.team)
   const [taskName, setTaskName] = useState("");
   const [taskBody, setTaskBody] = useState("");
-  let [dueDate, setDueDate] = useState("");
-  // const [date, setDate] = useState(new Date());
+  const [dueDate, setDueDate] = useState("");
+  const [errors, setErrors] = useState([]);
   const [assignedUserId, setAssignedUserId] = useState("");
-  const { projectId, teamId, taskId } = useParams();
+  const { projectId, teamId } = useParams();
 
   useEffect(() => {
-        dispatch(getTeam(teamId, user.id));
-    }, [teamId, user.id]);
+        dispatch(getTeam(user.id, teamId, dispatch));
+    }, [user.id, teamId, dispatch]);
 
   const handleSubmit= async (e) => {
     e.preventDefault();
@@ -29,12 +31,11 @@ const AddTaskComponent = () => {
         dueDate,
         assignedUserId
       };
-
-    const createdTask = await dispatch(postTask(user.id, projectId, payload));
-
-    if (createdTask) {
-        history.push(`/users/${user.id}/teams/${teamId}/project/${projectId}/task/${taskId}`);
-    }
+      const createdTask = await dispatch(postTask(projectId, payload));
+    if (createdTask) history.push(`/users/${user.id}/teams/${teamId}/project/${projectId}`)
+    // } else if (createdTask.errors) {
+    //   setErrors(createdTask.errors)
+    // }
   };
 
   return (
@@ -42,6 +43,7 @@ const AddTaskComponent = () => {
       <div className='taskForm'>
         <label>Task Name</label>
         <input
+          placeholder='Task Name'
           type="text"
           name="setTaskName"
           onChange={(e) => setTaskName(e.target.value)}
@@ -50,35 +52,42 @@ const AddTaskComponent = () => {
         </input>
         <label>Description</label>
         <textarea
+          placeholder='Description'
           type="text"
           name="setTaskBody"
           onChange={(e) => setTaskBody(e.target.value)}
-          value={taskBody}
-          required>
+          value={taskBody}>
         </textarea>
-
-        {/* <label>Due Date</label>
-        <DatePicker
+        <label>Due Date</label>
+          <input
+          placeholder='Due Date'
           type="text"
           name="setDueDate"
-          onChange={(e) => setDueDate(e.target.value), setDate}
-          value={ dueDate = date }
+          onChange={(e) => setDueDate(e.target.value)}
+          value={dueDate}
           required>
-        </DatePicker> */}
-
-        <label>assignedUserId</label>
-        {/* <select
+        </input>
+        {/* <DatePicker
+          type="date"
+          name="setDueDate"
+          selected={dueDate}
+          onChange={dueDate => setDueDate(dueDate)}
+          value={ dueDate }
+          required /> */}
+        <label>Assigned User</label>
+        <select
+          placeholder="Assign Team-member"
           type="text"
           name="setAssignedUserId"
           onChange={(e) => setAssignedUserId(e.target.value)}
           value={assignedUserId}
           required>
-            {team && team.users.map((user)=>{
-              return <option value={`${user.id}`}>{`${user.username}`}</option>
-            })}
-        </select> */}
-      </div>
+            {/* {team && team.users.map((user)=>{
+              return <option key={user.id} value={`${user.id}`}>{`${user.username}`}</option>
+            })} */}
+        </select>
       <button type="submit">Create Task</button>
+      </div>
     </form>
   );
 };
