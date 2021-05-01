@@ -18,7 +18,7 @@ project_routes = Blueprint('projects', __name__)
 # GET
 # renders project, team members associated, tasks, and the messageboard associated with the project # noqa
 @project_routes.route('/<int:id>/teams/<int:id2>/user/<int:id3>', methods=['GET'])  # noqa
-def get_projects(id):
+def get_projects(id, id2, id3):
     project = Project.query.get(id)
     team = Team.query.get(project.teamId)
     taskList = Task.query.filter(Task.projectId == id).all()

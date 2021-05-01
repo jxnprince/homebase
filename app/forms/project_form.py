@@ -9,4 +9,3 @@ class ProjectForm(FlaskForm):
     projectTitle = StringField('Project Title', validators=[DataRequired()])
     projectDescription = StringField('Project Description', validators=[DataRequired()])
     dueDate = DateField('Project Due Date', validators=[DataRequired()])
-    submit = SubmitField('Submit')
