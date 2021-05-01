@@ -1,0 +1,52 @@
+.project-info-container{
+    border: 3px solid black;
+    margin: 5px;
+    padding: 15px;
+    width: 200px;
+    background-color: #fef0ec;
+    margin-top: 10px;
+}
+
+.project-due-date {
+    margin-top: -15px
+}
+
+.due-date {
+    font-weight: bold;
+}
+
+.project-info-title {
+    font-weight: bolder;
+}
+
+.team-dashboard-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.tasks-display-component{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    background-color: #fef0ec;
+    color: #333432;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.tasks-display-container{
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.task-container{
+    border: 2px solid black;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    padding: 5px;
+    color: #f4633e;
+}

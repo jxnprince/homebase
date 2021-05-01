@@ -7,6 +7,8 @@ import SignUpForm from "./components/auth/SignUpForm";
 import NavigationBar from "./components/NavBarComponent/NavBar";
 import UserDashboard from "./components/UserDashboard";
 import TeamDashboard from "./components/TeamDashboard";
+import ProjectDashboard from "./components/ProjectDashboard";
+import AddProjectPage from './components/AddProjectPage';
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import MessageBoard from "./components/MessageBoard";
 // import User from "./components/User";
@@ -44,11 +46,14 @@ function App() {
         <ProtectedRoute path="/users/:userId/teams/:teamId" exact={true} >
             <TeamDashboard />
         </ProtectedRoute>
+        <ProtectedRoute path="/users/:userId/teams/:teamId/add-project" exact={true} >
+            <AddProjectPage />
+        </ProtectedRoute>
         <ProtectedRoute
           path="/users/:userId/teams/:teamId/projects/:projectId"
           exact={true}
           >
-          <MessageBoard />
+          <ProjectDashboard />
         </ProtectedRoute>
         <ProtectedRoute
         path="/users/:userId/teams/:teamId/projects/:projectId/tasks/create"
@@ -63,7 +68,7 @@ function App() {
       <ProtectedRoute path="/" exact={true}>
         <h1>HomeBase HomePage</h1>
       </ProtectedRoute>
-      <ProtectedRoute> 
+      <ProtectedRoute>
         <h1>Looks like this page doesn't exist...</h1>
       </ProtectedRoute>
       </Switch>

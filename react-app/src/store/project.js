@@ -28,35 +28,27 @@ const loadUserProjects = (userProjects) => {
 
 
 
-// export const projectPost = (userId, payload) => async dispatch => {
-//     const response = await fetch(`/api/users/${userId}/Projects`, {
-//       method: "POST",
-//       body: JSON.stringify(payload),
-//       headers: {
-//         "Content-type": "application/json; charset=UTF-8",
-//       },
-//     });
-//     if (!response.ok) throw response;
-//     const Projectmate = await response.json();
-//     dispatch(addProjectmate(Projectmate))
-//     return Projectmate;
-// }
+export const projectPost = (teamId, payload) => async dispatch => {
+    const response = await fetch(`/api/projects/create/teams/${teamId}`, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    if (!response.ok) throw response;
+    const project= await response.json();
+    dispatch(addProject(project))
+    return project;
+}
 
-// export const getProject = (userId, ProjectId) => async dispatch => {
-//     const response = await fetch(`/api/users/${userId}/Projects/${ProjectId}`);
-//     if(response.ok) {
-//       const Project = await response.json();
-//       dispatch(loadProject(Project))
-//     }
-// }
-
-// export const getProjects = (userId) => async dispatch => {
-//     const response = await fetch(`/api/users/${userId}/projects`);
-//     if(response.ok) {
-//       const projects = await response.json();
-//       dispatch(loadProjects(projects))
-//     }
-// }
+export const getProject = (userId, projectId, teamId) => async dispatch => {
+    const response = await fetch(`/api/projects/${projectId}/teams/${teamId}/user/${userId}`);
+    if(response.ok) {
+      const project = await response.json();
+      dispatch(loadProject(project))
+    }
+}
 
 export const getUserProjects = (userId) => async dispatch => {
     const response = await fetch(`/api/users/${userId}/user-projects`);
@@ -79,7 +71,7 @@ const ProjectsReducer = (state = initialState, action) => {
             return { project: null };
         case LOAD_PROJECT:
             newState = Object.assign({}, state);
-            newState.project = action.Project;
+            newState.project = action.project;
             return newState
         case LOAD_USER_PROJECTS:
             newState = Object.assign({}, state);
