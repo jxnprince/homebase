@@ -45,6 +45,7 @@ export const getTasks = (projectId) => async dispatch => {
 
 export const getTask = (taskId) => async dispatch => {
   const response = await fetch(`/api/tasks/${taskId}`)
+      console.log(response.body, "=================")
       if(response.ok) {
         const task = await response.json()
         dispatch(loadTask(task))
@@ -54,14 +55,15 @@ export const getTask = (taskId) => async dispatch => {
 export const postTask = (projectId, payload) => async dispatch => {
   const response = await fetch(`/api/tasks/projects/${projectId}/create`, {
     method: "POST",
-    body: JSON.stringify(payload),
     headers: {
       "Content-type": "application/json; charset=UTF8"
-    }
+    },
+    body: JSON.stringify(payload)
   })
+  // console.log(projectId, payload, '========================')
   if (response.ok){
-  const task = await response.json();
-  dispatch((addTask(task)))
+    const task = await response.json();
+    dispatch((addTask(task)))
   return task
   } else throw response
 };
@@ -91,7 +93,7 @@ export const deleteTask = (taskId) => async dispatch =>{
   }else throw response
 }
 
-const initialState = {};
+const initialState = {tasks: null, task: null};
 
 const TasksReducer = (state = initialState, action) =>{
   let newState;
@@ -107,20 +109,20 @@ const TasksReducer = (state = initialState, action) =>{
       return newState;
 
     case ADD_TASK:
-      newState = Object.assign({}. state);
+      newState = Object.assign({}, state);
       newState.task = action.payload
       return newState;
 
     case EDIT_TASK:
-      newState = Object.assign({}. state);
+      newState = Object.assign({}, state);
       newState.task = action.payload
       return newState;
 
     case REMOVE_TASK:
-      newState = Object.assign({}. state);
+      newState = Object.assign({}, state);
       newState.task = action.payload
       return newState;
-    default:
+        default:
       return state;
   }
 }

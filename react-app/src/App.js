@@ -13,6 +13,7 @@ import MessageBoard from "./components/MessageBoard";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 import AddTaskComponent from "../src/components/AddTaskComponent/index"
+import SingleTaskPage from '../src/components/SingleTaskPage'
 
 
 function App() {
@@ -56,10 +57,11 @@ function App() {
         >
           <AddTaskComponent />
         </ProtectedRoute>
-        {/* <ProtectedRoute
-        path="team/:teamid/project/:projectid/tasks/:taskid"
+        <ProtectedRoute
+        path="/users/:userId/teams/:teamId/projects/:projectId/tasks/:taskId"
         exact={true}>
-      </ProtectedRoute> */}
+          <SingleTaskPage />
+      </ProtectedRoute>
       <ProtectedRoute path="/" exact={true}>
         <h1>HomeBase HomePage</h1>
       </ProtectedRoute>
