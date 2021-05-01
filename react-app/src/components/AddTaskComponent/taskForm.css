@@ -1,0 +1,8 @@
+.taskForm{
+    display: inline-block;
+    max-width: 15%;
+    padding-left: 45%;
+    padding-top: 5%;
+    /* padding-right: 50%; */
+    /* background-color: grey; */
+}
