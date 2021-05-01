@@ -16,11 +16,9 @@ const removeTeam = (team) => ({
 });
 
 const addTeammate = (teammate) => ({
-
     type: ADD_TEAMMATE,
     payload: teammate
 })
-
 
 const loadTeams = (teams) => {
   return {

@@ -27,31 +27,44 @@ const TeamDashboard = () => {
       };
 
     return (
-        <div>
+        <div className="team-dashboard-container">
             {team &&
                 <div>
                     <div>
                         <TeamMembersDisplay teamId={teamId} userId={userId}/>
                     </div>
                     <div>
-                        <h1>{team.teamName}</h1>
                         <AddMemberComponent />
-                        <form onSubmit={handleSubmit}>
-                            <button type="submit">Delete Team</button>
-                        </form>
                     </div>
                 </div>
             }
-            <div className="projects-display-component">
-                <h1>Projects</h1>
-                <div className="projects-display-container">
-                    {team && team.projects.map((project) => (
-                        <a href={`/users/${userId}/teams/${project.teamId}/projects/${project.id}`}>
+            <div>
+                {team &&
+                    <div>
+                        <div className="team-name-plus-delete">
+                            <h1>Team: {team.team.teamName}</h1>
+                            <form onSubmit={handleSubmit}>
+                                <button type="submit" className="team-delete-button">Delete Team</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                <div className="projects-display-component">
+                    <h1>Projects</h1>
+                    <div className="projects-display-container">
+                        <a href={`/users/${userId}/teams/${teamId}/create-project`}>
                             <div className="project-container">
-                                <h1>{project.projectTitle}</h1>
+                                <h1>Create a Project</h1>
                             </div>
                         </a>
-                    ))}
+                        {team && team.projects && team.projects.map((project) => (
+                            <a href={`/users/${userId}/teams/${project.teamId}/projects/${project.id}`}>
+                                <div className="project-container">
+                                    <h1>{project.projectTitle}</h1>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
