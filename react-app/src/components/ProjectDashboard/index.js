@@ -12,6 +12,7 @@ const ProjectDashboard = () => {
     const {teamId, userId, projectId} = useParams()
     const project = useSelector(state => state.projects.project)
     let dateFormatted;
+    let taskDateFormatted;
 
     useEffect(() => {
         dispatch(getProject(userId, projectId, teamId));
@@ -31,6 +32,7 @@ const ProjectDashboard = () => {
         dateFormatted = project.project.dueDate.slice(5, 16)
     }
 
+
     return (
         <div className="team-dashboard-container">
             <div>
@@ -45,15 +47,21 @@ const ProjectDashboard = () => {
                 }
             </div>
             <div className="tasks-message-container">
-                <h1 className="dashboard-title">Projects Dashboard</h1>
+                <h1 className="dashboard-title">Project Dashboard</h1>
                 <div className="tasks-display-component">
                     <h1>Tasks</h1>
                     <div className="tasks-display-container">
+                        <a href={`/users/${userId}/teams/${teamId}/projects/${projectId}/tasks/create`}>
+                            <div className="task-container">
+                                <h1>Create a Task</h1>
+                            </div>
+                        </a>
                         {project && project.tasks.map((task) => (
                         <a href={`/users/${userId}/teams/${teamId}/projects/${projectId}/tasks/${task.id}`}>
                             <div className="task-container">
                                 <h1>{task.taskName}</h1>
                                 <p>{task.taskBody}</p>
+                                <p>Due: {task.dueDate.slice(5,16)}</p>
                             </div>
                         </a>
                         ))}

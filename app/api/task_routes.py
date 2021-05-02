@@ -16,7 +16,7 @@ task_routes = Blueprint("tasks", __name__)
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/create"
 # POST - appears on project page in form modal
-@task_routes.route("/projects/<int:id>/create/", methods=["POST"])
+@task_routes.route("/projects/<int:id>/create", methods=["POST"])
 def create_task(id):
     form = CreateTaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -33,7 +33,7 @@ def create_task(id):
         db.session.commit()
         return data.to_dict()
     else:
-        return 'From not validated. Task not created.'
+        return {'Form not validated. Task not created.'}
 
 
 # "homebase/users/:id/teams/:id/projects/:id/tasks/:id"
@@ -53,7 +53,7 @@ def show_task(id):
 # @login.required
 def get_all_tasks(id):
     project = Project.query.get(id)
-    projectTasks = Task.query.filter(Task.projectId == id).all()
+    projectTasks = Task.query.filter(Task.projectId == id).order_by(Task.dueDate.desc()).limit(10).all()  # noqa
 
     return {
         "Project Tasks": [task.to_dict() for task in projectTasks]

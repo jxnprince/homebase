@@ -25,7 +25,7 @@ const UserDashboard = () => {
                 {user &&
                     <div className="user-info-inner-container">
                         <img src={user.user_avatar} className="user-avatar"></img>
-                        <p className="user-details">{user.firstname} {user.lastname}</p>
+                        <p id="user-info-name"className="user-details">{user.firstname} {user.lastname}</p>
                         <p className="user-details">{user.username}</p>
                     </div>
                 }
