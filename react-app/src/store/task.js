@@ -45,7 +45,7 @@ export const getTasks = (projectId) => async dispatch => {
 
 export const getTask = (taskId) => async dispatch => {
   const response = await fetch(`/api/tasks/${taskId}`)
-      console.log(response.body, "=================")
+      // console.log(response.body, "=================")
       if(response.ok) {
         const task = await response.json()
         dispatch(loadTask(task))
