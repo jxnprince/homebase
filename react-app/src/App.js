@@ -36,9 +36,6 @@ function App() {
     <BrowserRouter>
       <NavigationBar />
       <Switch>
-        <Route path="/" exact={true}>
-          <SplashPage />
-        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
@@ -72,6 +69,7 @@ function App() {
           <SingleTaskPage />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true}>
+        <SplashPage />
         <h1>HomeBase HomePage</h1>
       </ProtectedRoute>
       <ProtectedRoute>
