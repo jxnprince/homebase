@@ -1,0 +1,94 @@
+div#loginFormPage {
+  display: flexbox;
+  position: relative;
+  margin-left: 35vw;
+}
+
+h1 {
+  color: #3396ff;
+  place-self: center;
+}
+.loginFormPage {
+  /* background-color: thistle; */
+  display: flex;
+  flex-direction: column;
+  height: 115vh;
+  place-self: center;
+  font-family: system-ui;
+  /* margin-left: 10vw; */
+}
+.the-labels {
+  padding: 4px;
+  margin-left: 35px;
+}
+
+input {
+  background-color: #EFF6FB;
+  justify-content: left;  
+  margin-left: 35px;
+  width: 140px;
+}
+
+.login-inputs {
+  margin-top: 20vh;
+  margin-right: 120px;
+  height: 200px;
+  width: 350px;
+  box-sizing: border-box;
+  border: 1px solid #FEF0EC;
+  background-color: #3396ff;
+  color: #FEF0EC;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.login-btn {
+  border-radius: 2px;
+  background-color: #FEF0EC;
+  color: #F4633E;
+  margin-top: 15px;
+  justify-self: center;
+  width: 100px;
+  height: 30px;
+  box-shadow: 0 0 2px #fffcf25a;
+  cursor: progress;
+  font-weight: 700;
+  margin-left: 115px;
+
+
+}
+
+div.email-container {
+  margin-top: 2vh;
+  margin-left: 28px;
+
+}
+
+/* .email-input {
+  color: #FEF0EC;
+  padding-left: 40px;
+  /* padding: 2px; */
+  /* padding-top: 1vw; */
+  /*height: 30px;} */
+
+/* .guest-btn {
+  border-radius: 2px;
+  background-color: #3E87E0;
+  color: #fffcf2;
+  /* margin-top: 18px; */
+ /* width: 100px;
+  height: 30px;
+  box-shadow: 0 0 2 px #fffcf2; */
+
+  /* cursor: progress;
+  font-weight: 700;
+  /* margin-left: 83px; */
+  /* justify-self: center; } */
+
+
+.the-errors {
+  color: rgb(231, 18, 18);
+}
+
