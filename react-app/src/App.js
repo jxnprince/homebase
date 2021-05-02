@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
+import SplashPage from "./components/SplashPageComponent/SplashPage"
 import NavigationBar from "./components/NavBarComponent/NavBar";
 import UserDashboard from "./components/UserDashboard";
 import TeamDashboard from "./components/TeamDashboard";
@@ -35,6 +36,9 @@ function App() {
     <BrowserRouter>
       <NavigationBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <SplashPage />
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>

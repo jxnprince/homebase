@@ -1,10 +1,26 @@
 .whole-nav { 
-    background-color: rgb(240, 240, 218);
+    background-color: #FEF0EC;
     display: inline-block;
-    box-shadow: 1px 1px #333432 
+    box-shadow: 4px 1px #F4633E; 
 }
 
-.nav-item{
+/* .nav-item{
     color: #333432;
 
+} */
+
+.active-home {
+  color: orangered;
+  padding: 7vw 1vw;
+}
+.active-gst-login {
+  color: rgb(120, 64, 224);
+}
+.active-login {
+  color: rgb(120, 64, 224);
+}
+.active-signup {
+  color: rgb(120, 64, 224);
+  place-self: end;
+  margin-left: 70px;
 }
