@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
-import { getProject } from '../../store/project';
+import { getProject, deleteProject } from '../../store/project';
 import TeamMembersDisplay from "../TeamMembersDisplay";
 import MessageBoard from '../MessageBoard'
 import './ProjectDashboard.css'
@@ -12,21 +12,20 @@ const ProjectDashboard = () => {
     const {teamId, userId, projectId} = useParams()
     const project = useSelector(state => state.projects.project)
     let dateFormatted;
-    let taskDateFormatted;
 
     useEffect(() => {
         dispatch(getProject(userId, projectId, teamId));
     }, [teamId, userId, projectId]);
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    //     let deletedProject = await dispatch(deleteProject(userId, projectId));
+        let deletedProject = await dispatch(deleteProject(projectId));
 
-    //     if (deletedProject) {
-    //       history.push(`/users/${userId}/teams/${teamId}/projects`);
-    //     }
-    //   };
+        if (deletedProject) {
+          history.push(`/users/${userId}/teams/${teamId}`);
+        }
+      };
 
     if(project){
         dateFormatted = project.project.dueDate.slice(5, 16)
@@ -43,6 +42,9 @@ const ProjectDashboard = () => {
                         <p>{project.project.projectDescription}</p>
                         <p className="due-date">Due Date:</p>
                         <p className="project-due-date">{dateFormatted}</p>
+                        <form onSubmit={handleSubmit}>
+                            <button type="submit" className="project-delete-button">Delete Project</button>
+                        </form>
                     </div>
                 }
             </div>

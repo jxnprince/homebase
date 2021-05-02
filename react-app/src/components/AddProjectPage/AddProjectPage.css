@@ -40,3 +40,10 @@
 #add-project-description {
     height: 100px;
 }
+
+.project-title-input,
+.project-description-input,
+.project-due-date-input {
+    width: 200px;
+    margin-left: 0px;
+}
