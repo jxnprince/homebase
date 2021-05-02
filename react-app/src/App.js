@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import SplashPage from "./components/SplashPageComponent/SplashPage"
 import NavigationBar from "./components/NavBarComponent/NavBar";
 import UserDashboard from "./components/UserDashboard";
 import TeamDashboard from "./components/TeamDashboard";
@@ -17,6 +16,7 @@ import MessageBoard from "./components/MessageBoard";
 import { authenticate } from "./store/session";
 import AddTaskComponent from "../src/components/AddTaskComponent/index"
 import SingleTaskPage from '../src/components/SingleTaskPage'
+import SplashPage from "./components/SplashPageComponent/SplashPage"
 
 
 function App() {
@@ -68,7 +68,7 @@ function App() {
         exact={true}>
           <SingleTaskPage />
       </ProtectedRoute>
-      <ProtectedRoute path="/" exact={true}>
+      <ProtectedRoute path="/splash" exact={true}>
         <SplashPage />
         <h1>HomeBase HomePage</h1>
       </ProtectedRoute>

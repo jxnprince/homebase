@@ -44,6 +44,11 @@ input {
   /* align-items: center; */
 }
 
+input.the-in {
+color : #F4633E;
+
+}
+
 .login-btn {
   border-radius: 2px;
   background-color: #FEF0EC;

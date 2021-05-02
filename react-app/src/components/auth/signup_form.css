@@ -22,10 +22,10 @@ div#signupFormPage {
 
 
 .signup-inputs {
-  margin-top: 20vh;
+  margin-top: 10vh;
   margin-right: 120px;
-  height: 300px;
-  width: 350px;
+  height: 500px;
+  width: 400px;
   box-sizing: border-box;
   border: 1px solid #FEF0EC;
   background-color: #3396ff;
