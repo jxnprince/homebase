@@ -17,9 +17,14 @@
 .user-avatar {
     max-width: 100%;
     border-radius: 47px;
+    margin-bottom: 15px;
 }
 
 .user-details{
     font-size: 20px;
     margin-top: 5px
+}
+
+#user-info-name {
+    font-weight: bold;
 }
