@@ -22,9 +22,11 @@
     background-color: #eff6fb;
     margin-left: 10px;
     margin-top: 10px;
+    height: 40px;
 }
 
 .new-member-input{
     margin-left: 10px;
     height: 40px;
+    width: 200px;
 }

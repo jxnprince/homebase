@@ -10,11 +10,14 @@
 
 .add-team-label{
     font-size: 20px;
+    text-align: center;
 }
 
 .add-team-input{
     height: 40px;
     margin-bottom: 10px;
+    width: 185px;
+    margin-left: 0px;
 }
 
 .add-team-submit{

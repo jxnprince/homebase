@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import  { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
+import './login_form.css'
+// import './login_form_dark.css'
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,7 @@ const LoginForm = () => {
     }
   };
 
-  const updateEmail = (e) => {
+  const updateEmail = (e) => { 
     setEmail(e.target.value);
   };
 
@@ -27,19 +29,22 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to={`/users/${user.id}/teams`} />;
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
+    <div id='loginFormPage'>
+    <h1>Login Page</h1>
+    <form onSubmit={onLogin} className='login-inputs'>
+      <div className='the-errors'>
         {errors.map((error) => (
           <div>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
+      <div className='email-container'>
+        <label className='the-labels'
+        htmlFor="email">Email</label>
+        <input className='email-input'
           name="email"
           type="text"
           placeholder="Email"
@@ -47,18 +52,19 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
+      <div className='password-container'>
+        <label  className='the-labels' htmlFor="password">Password</label>
+        <input 
           name="password"
           type="password"
           placeholder="Password"
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
+        <button className='login-btn' type="submit">Login</button>
       </div>
     </form>
+    </div>
   );
 };
 

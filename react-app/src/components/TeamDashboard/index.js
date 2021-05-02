@@ -52,7 +52,7 @@ const TeamDashboard = () => {
                 <div className="projects-display-component">
                     <h1>Projects</h1>
                     <div className="projects-display-container">
-                        <a href={`/users/${userId}/teams/${teamId}/create-project`}>
+                        <a href={`/users/${userId}/teams/${teamId}/add-project`}>
                             <div className="project-container">
                                 <h1>Create a Project</h1>
                             </div>

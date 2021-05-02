@@ -8,5 +8,5 @@ class CreateTaskForm(FlaskForm):
     taskName = StringField("Task Name", validators=[DataRequired()])
     taskBody = StringField("Description")
     dueDate = StringField("Due Date", validators=[DataRequired()])
-    assignedUserId = IntegerField("Assigned To", validators=[DataRequired()])
+    assignedUserId = IntegerField("Assigned To")
     # submit = SubmitField("Create new task")

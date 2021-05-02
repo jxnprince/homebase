@@ -16,7 +16,8 @@ import MessageBoard from "./components/MessageBoard";
 import { authenticate } from "./store/session";
 import AddTaskComponent from "../src/components/AddTaskComponent/index"
 import SingleTaskPage from '../src/components/SingleTaskPage'
-
+import SplashPage from "./components/SplashPageComponent/SplashPage"
+import FooterComponent from '../src/components/FooterComponent'
 
 
 function App() {
@@ -38,9 +39,11 @@ function App() {
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm />
+          <FooterComponent />
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
+          <FooterComponent />
         </Route>
         <ProtectedRoute path="/users/:userId/teams" exact={true} >
             <UserDashboard />
@@ -69,8 +72,10 @@ function App() {
           <SingleTaskPage />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true}>
+        <SplashPage />
         <h1>HomeBase HomePage</h1>
-      </ProtectedRoute>
+        <FooterComponent />
+      </ProtectedRoute> 
       <ProtectedRoute>
         <h1>Looks like this page doesn't exist....</h1>
       </ProtectedRoute>

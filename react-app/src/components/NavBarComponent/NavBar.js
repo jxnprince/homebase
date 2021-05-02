@@ -17,10 +17,10 @@ const NavigationBar = () => {
       <Navbar className='whole-nav' fixed='top'>
         <Container>
               <Nav>
-                <Nav.Link href='/' exact={true} activeClassName="active">HomeBase</Nav.Link>
-                <Nav.Link href='/login' exact={true} activeClassName="active">Login</Nav.Link>
-                <Nav.Link onClick={guestLogin} exact={true} activeClassName="active">Guest Login</Nav.Link>
-                <Nav.Link href='/sign-up' exact={true} activeClassName="active">Sign Up</Nav.Link>
+                <Nav.Link href='/' exact={true} activeClassName="active-home">HomeBase</Nav.Link>
+                <Nav.Link href='/login' exact={true} activeClassName="active-gst-login">Login</Nav.Link>
+                <Nav.Link onClick={guestLogin} exact={true} activeClassName="active-login">Guest Login</Nav.Link>
+                <Nav.Link href='/sign-up' exact={true} activeClassName="active-signup">Sign Up</Nav.Link>
               </Nav>
         </Container>
       </Navbar>
@@ -30,7 +30,7 @@ const NavigationBar = () => {
       <Navbar className='whole-nav' fixed='top'>
         <Container>
               <Nav>
-                <Nav.Link href='/' exact={true} activeClassName="active">HomeBase</Nav.Link>
+                <Nav.Link href='/' exact={true} activeClassName="active-home">HomeBase</Nav.Link>
                 <NavDropdown href='/' title={user.username} id="collasible-nav-dropdown">
                   <NavDropdown.Item href={`/users/${user.id}`}>{user.username}'s Dashboard</NavDropdown.Item>
                   <NavDropdown.Item title='Logout'><LogoutButton /></NavDropdown.Item>

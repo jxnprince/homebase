@@ -1,0 +1,49 @@
+.add-project-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.add-project-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fef0ec;
+    width: 400px;
+    height: 450px;
+    margin-top: 50px;
+}
+
+.add-project-page {
+    display: flex;
+    justify-content: center;
+}
+
+.create-project-title {
+    margin-bottom: 10px;
+}
+
+.add-project-label {
+    width: 200px;
+    margin-top: 5px;
+}
+
+.new-project-submit {
+    margin-top: 30px;
+    background-color: #f4633e;
+    opacity: 90%;
+    height: 40px;
+    border: 2px solid black;
+}
+
+#add-project-description {
+    height: 100px;
+}
+
+.project-title-input,
+.project-description-input,
+.project-due-date-input {
+    width: 200px;
+    margin-left: 0px;
+}

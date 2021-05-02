@@ -55,9 +55,17 @@ def post_project(teamId):
 @project_routes.route('<int:id>/delete', methods=['DELETE'])
 def delete_project(id):
     project = Project.query.get(id)
+    comments = project.comments
+    tasks = project.tasks
+    if comments:
+        for comment in comments:
+            db.session.delete(comment)
+    if tasks:
+        for task in tasks:
+            db.session.delete(task)
     db.session.delete(project)
     db.session.commit()
-    return (f'Project: {project.projectTitle} was Deleted')
+    return project.to_dict()
 
 
 # "homebase/users/:id/teams/:id/projects/:id/edit"

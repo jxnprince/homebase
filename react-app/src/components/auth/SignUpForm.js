@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './signup_form.css'
+// import './signup_form_dark.css'
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
+  const [user_avatar, setUser_Avatar] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -18,12 +23,24 @@ const SignUpForm = () => {
     }
   };
 
+  const updateFirstname = (e) => {
+    setFirstname(e.target.value);
+  };
+
+  const updateLastname = (e) => {
+    setLastname(e.target.value);
+  };
+
   const updateUsername = (e) => {
     setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateUser_avatar = (e) => {
+    setUser_Avatar(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -35,14 +52,34 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/users/${user.id}" />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <div className='signupFormPage'>
+    <h1 className='signup-title'>SignUp Page</h1>
+    <form className='signup-inputs' onSubmit={onSignUp}>
+      <div>
+        <label>First Name</label>
+        <input className='the-in'
+          type="text"
+          name="firstname"
+          onChange={updateFirstname}
+          value={firstname}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input className='the-in'
+          type="text"
+          name="lastname"
+          onChange={updateLastname}
+          value={lastname}
+        ></input>
+      </div>
       <div>
         <label>User Name</label>
-        <input
+        <input className='the-in'
           type="text"
           name="username"
           onChange={updateUsername}
@@ -50,8 +87,8 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
-        <input
+        <label className='email-in'>Email</label>
+        <input className='the-in'
           type="text"
           name="email"
           onChange={updateEmail}
@@ -59,8 +96,17 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
-        <input
+        <label className='avatar-in'>User Avatar</label>
+        <input className='the-in'
+          type="text"
+          name="user_avatar"
+          onChange={updateUser_avatar}
+          value={user_avatar}
+        ></input>
+      </div>
+      <div>
+        <label className='password-in'>Password</label>
+        <input className='the-in'
           type="password"
           name="password"
           onChange={updatePassword}
@@ -68,8 +114,8 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Confirm Password</label>
-        <input
+        <label className='rpt-password-in'>Confirm Password</label>
+        <input className='the-in'
           type="password"
           name="repeat_password"
           onChange={updateRepeatPassword}
@@ -79,6 +125,7 @@ const SignUpForm = () => {
       </div>
       <button type="submit">Sign Up</button>
     </form>
+    </div>
   );
 };
 
