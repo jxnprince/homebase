@@ -70,11 +70,6 @@ function App() {
         exact={true}>
           <SingleTaskPage />
       </ProtectedRoute>
-      <ProtectedRoute path="/" exact={true}>
-        <SplashPage />
-        <h1>HomeBase HomePage</h1>
-        <FooterComponent />
-      </ProtectedRoute> 
       <ProtectedRoute>
         <h1>Looks like this page doesn't exist...</h1>
         <FooterComponent />

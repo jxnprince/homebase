@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 800px;
   overflow: scroll;
   border-radius: 4px;
   background-color: white;
   padding: 5px 2px 5px 2px;
+  margin-top: 10px;
 }
-h1 {
-  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+.mb-title {
   padding-bottom: 5px;
 }
 
@@ -22,3 +22,13 @@ h1 {
   margin-right: 25px;
   margin-left: 25px;
 }
+
+.comment-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+/* 
+input{
+
+} */

@@ -36,7 +36,7 @@ const AddTaskComponent = () => {
         assignedUserId
       };
       const createdTask = await dispatch(postTask(projectId, payload));
-    if (createdTask) history.push(`/users/${user.id}/teams/${teamId}/project/${projectId}`)
+    if (createdTask) history.push(`/users/${user.id}/teams/${teamId}/projects/${projectId}`)
     // } else if (createdTask.errors) {
     //   setErrors(createdTask.errors)
     // }
