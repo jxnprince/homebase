@@ -30,8 +30,8 @@ const NavigationBar = () => {
       <Navbar className='whole-nav' fixed='top'>
         <Container>
               <Nav>
-                <Nav.Link href='/' exact={true} activeClassName="active-home">HomeBase</Nav.Link>
-                <NavDropdown href='/' title={user.username} id="collasible-nav-dropdown">
+                <Nav.Link href='/login' exact={true} activeClassName="active-home">HomeBase</Nav.Link>
+                <NavDropdown title={user.username} id="collasible-nav-dropdown">
                   <NavDropdown.Item href={`/users/${user.id}`}>{user.username}'s Dashboard</NavDropdown.Item>
                   <NavDropdown.Item title='Logout'><LogoutButton /></NavDropdown.Item>
                 </NavDropdown>

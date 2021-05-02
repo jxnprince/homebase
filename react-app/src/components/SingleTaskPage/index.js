@@ -33,7 +33,8 @@ const SingleTaskPage = () => {
                 <p>{task.taskBody}</p>
                 <p>{task.dueDate}</p>
                 <p>{task.assignedUserId}</p>
-                <form>
+                <form onSubmit={handleSubmit}>
+                    <button>Delete Task</button>
                     <input type="checkbox" value={task.completed}></input>
                 </form>
             </div>

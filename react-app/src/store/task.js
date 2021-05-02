@@ -90,6 +90,7 @@ export const deleteTask = (taskId) => async dispatch =>{
   if (response.ok){
     const task = response.json()
     dispatch(removeTask(task))
+    return task
   }else throw response
 }
 

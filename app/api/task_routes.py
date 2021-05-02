@@ -88,4 +88,4 @@ def delete_task(id):
     task = Task.query.get(id)
     db.session.delete(task)
     db.session.commit()
-    return f'Task: "{task.taskName}" was Deleted'
+    return task.to_dict()
