@@ -18,6 +18,7 @@ import AddTaskComponent from "../src/components/AddTaskComponent/index"
 import SingleTaskPage from '../src/components/SingleTaskPage'
 
 
+
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
@@ -71,7 +72,7 @@ function App() {
         <h1>HomeBase HomePage</h1>
       </ProtectedRoute>
       <ProtectedRoute>
-        <h1>Looks like this page doesn't exist...</h1>
+        <h1>Looks like this page doesn't exist....</h1>
       </ProtectedRoute>
       </Switch>
     </BrowserRouter>
