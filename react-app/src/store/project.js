@@ -26,7 +26,16 @@ const loadUserProjects = (userProjects) => {
     }
 }
 
-
+export const deleteProject = (projectId) => async (dispatch) => {
+    const response = await fetch(`/api/projects/${projectId}/delete`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      const project = await response.json();
+      dispatch(removeProject(project));
+      return project;
+    }
+  };
 
 export const projectPost = (teamId, payload) => async dispatch => {
     const response = await fetch(`/api/projects/create/teams/${teamId}`, {

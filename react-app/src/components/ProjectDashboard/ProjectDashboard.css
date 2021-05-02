@@ -50,3 +50,8 @@
     padding: 5px;
     color: #f4633e;
 }
+
+.project-delete-button {
+    height: 40px;
+    background-color: #f4633e;
+}
