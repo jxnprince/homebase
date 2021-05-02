@@ -17,16 +17,13 @@ const MessageBoard = () => {
 
   return (
     <div className="board-container">
-      <h1 classnName="mb-title">Message Board</h1>
+      <h1>Message Board</h1>
       {teamComments?.comments.map((comment, i) => (
         <div className="comment-container">
           <div className="comment-body">
             {comment.commentBody}
-            <span className="comment-component"> By: {comment.username}</span>
-            <span className="comment-component">
-              {" "}
-              | Posted: {comment.createdAt}
-            </span>
+            <span> By: {comment.username}</span>
+            <span> | Posted: {comment.createdAt}</span>
           </div>
         </div>
       ))}
