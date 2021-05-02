@@ -3,14 +3,13 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  width: 800px;
+  width: 400px;
   overflow: scroll;
   border-radius: 4px;
-  background-color: #eff6fb;
-  margin-top: 10px;
-  color: #333432;
+  background-color: white;
+  padding: 5px 2px 5px 2px;
 }
-.mb-title {
+h1 {
   border-bottom: 4px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 5px;
 }
@@ -22,5 +21,4 @@
   height: 50%;
   margin-right: 25px;
   margin-left: 25px;
-  color: #3396ff;
 }
