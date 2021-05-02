@@ -18,7 +18,7 @@ const LoginForm = () => {
     }
   };
 
-  const updateEmail = (e) => {
+  const updateEmail = (e) => { 
     setEmail(e.target.value);
   };
 
@@ -27,7 +27,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to={`/users/${user.id}/teams`} />;
   }
 
   return (
