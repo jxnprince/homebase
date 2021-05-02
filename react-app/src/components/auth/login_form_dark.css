@@ -1,3 +1,4 @@
+
 div#loginFormPage {
   display: flexbox;
   position: relative;
@@ -5,7 +6,7 @@ div#loginFormPage {
 }
 
 h1 {
-  color: #3396ff;
+  color: #F9F5C8;
   place-self: center;
 }
 .loginFormPage {
@@ -27,7 +28,6 @@ input {
   justify-content: left;  
   margin-left: 35px;
   width: 140px;
-  border-radius: 6px;
 }
 
 .login-inputs {
@@ -42,13 +42,11 @@ input {
   display: grid;
   flex-direction: column;
   justify-content: center;
-  border: solid 3px #c95838;
-  border-radius: 6px;
   /* align-items: center; */
 }
 
 input.the-in {
-  color: #F4633E;
+color : #F4633E;
 
 }
 
@@ -64,7 +62,7 @@ input.the-in {
   cursor: progress;
   font-weight: 700;
   margin-left: 115px;
-  border-radius: 6px;
+
 
 }
 

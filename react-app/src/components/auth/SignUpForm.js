@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './signup_form.css'
+// import './signup_form_dark.css'
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
