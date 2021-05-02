@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-// import SplashPage from "./components/SplashPageComponent/SplashPage"
 import NavigationBar from "./components/NavBarComponent/NavBar";
 import UserDashboard from "./components/UserDashboard";
 import TeamDashboard from "./components/TeamDashboard";
@@ -17,6 +16,7 @@ import MessageBoard from "./components/MessageBoard";
 import { authenticate } from "./store/session";
 import AddTaskComponent from "../src/components/AddTaskComponent/index"
 import SingleTaskPage from '../src/components/SingleTaskPage'
+import SplashPage from "./components/SplashPageComponent/SplashPage"
 import FooterComponent from '../src/components/FooterComponent'
 
 function App() {
@@ -70,11 +70,11 @@ function App() {
         exact={true}>
           <SingleTaskPage />
       </ProtectedRoute>
-      {/* <ProtectedRoute path="/" exact={true}>
+      <ProtectedRoute path="/" exact={true}>
         <SplashPage />
         <h1>HomeBase HomePage</h1>
         <FooterComponent />
-      </ProtectedRoute> */}
+      </ProtectedRoute> 
       <ProtectedRoute>
         <h1>Looks like this page doesn't exist...</h1>
         <FooterComponent />
