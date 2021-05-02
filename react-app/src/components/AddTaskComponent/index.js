@@ -23,6 +23,10 @@ const AddTaskComponent = () => {
         dispatch(getTeam(user.id, teamId, dispatch));
     }, [user.id, teamId, dispatch]);
 
+  useEffect(()=>{
+    if (!!team)setAssignedUserId(!!team.users && team.users.length > 0 ? team.users[0].id : "")
+  },[team])
+
   const handleSubmit= async (e) => {
     e.preventDefault();
     const payload = {
@@ -82,9 +86,9 @@ const AddTaskComponent = () => {
           onChange={(e) => setAssignedUserId(e.target.value)}
           value={assignedUserId}
           required>
-            {/* {team && team.users.map((user)=>{
-              return <option key={user.id} value={`${user.id}`}>{`${user.username}`}</option>
-            })} */}
+            {team && team.users.map((user)=>{
+              return <option key={user.id} value={user.id}>{user.username}</option>
+            })}
         </select>
       <button type="submit">Create Task</button>
       </div>
