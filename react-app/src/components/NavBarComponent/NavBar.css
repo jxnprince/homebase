@@ -50,3 +50,9 @@
   color: #F5F5F5;
   text-decoration: none;
 }
+
+.dropdown-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
