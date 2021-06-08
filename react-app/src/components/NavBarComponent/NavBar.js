@@ -12,25 +12,25 @@ const NavigationBar = () => {
   const user = useSelector(state => state.session.user);
   const guestLogin = () => dispatch(login("demo@aa.io", "password"))
 
-  if (!user){ 
+  if (!user){
     return (
       <Navbar className='whole-nav' fixed='top'>
         <Container>
               <Nav>
-                <Nav.Link href='/' exact={true} activeClassName="active-home">HomeBase</Nav.Link>
-                <Nav.Link href='/login' exact={true} activeClassName="active-gst-login">Login</Nav.Link>
-                <Nav.Link onClick={guestLogin} exact={true} activeClassName="active-login">Guest Login</Nav.Link>
-                <Nav.Link href='/sign-up' exact={true} activeClassName="active-signup">Sign Up</Nav.Link>
+                <Nav.Link href='/' exact="true" className="active-home">HomeBase</Nav.Link>
+                <Nav.Link href='/login' exact="true" className="active-gst-login">Login</Nav.Link>
+                <Nav.Link onClick={guestLogin} exact="true" className="active-login">Guest Login</Nav.Link>
+                <Nav.Link href='/sign-up' exact="true" className="active-signup">Sign Up</Nav.Link>
               </Nav>
         </Container>
       </Navbar>
     )
-  }else{ 
+  }else{
     return (
       <Navbar className='whole-nav' fixed='top'>
         <Container>
               <Nav>
-                <Nav.Link href='/login' exact={true} activeClassName="active-home">HomeBase</Nav.Link>
+                <Nav.Link href='/login' exact="true" className="active-home">HomeBase</Nav.Link>
                 <NavDropdown title={user.username} id="collasible-nav-dropdown">
                   <NavDropdown.Item href={`/users/${user.id}`}>{user.username}'s Dashboard</NavDropdown.Item>
                   <NavDropdown.Item title='Logout'><LogoutButton /></NavDropdown.Item>
@@ -66,7 +66,7 @@ const NavigationBar = () => {
 //         </li>
 //       </ul>
 //     </nav>
-    
+
 //   );
 // }
 

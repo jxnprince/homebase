@@ -53,6 +53,8 @@ const SignUpForm = () => {
 
   if (user) {
     return <Redirect to="/users/${user.id}" />;
+  } else {
+      return <Redirect to="/" />
   }
 
   return (
