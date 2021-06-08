@@ -35,7 +35,6 @@ const ProjectDashboard = () => {
     return (
         <div className="team-dashboard-container">
             <div>
-                <TeamMembersDisplay teamId={teamId} userId={userId}/>
                 {project &&
                     <div className="project-info-container">
                         <h5 className="project-info-title">{project.project.projectTitle}</h5>
@@ -47,9 +46,9 @@ const ProjectDashboard = () => {
                         </form>
                     </div>
                 }
+                <TeamMembersDisplay teamId={teamId} userId={userId}/>
             </div>
             <div className="tasks-message-container">
-                <h1 className="dashboard-title">Project Dashboard</h1>
                 <div className="tasks-display-component">
                     <h1>Tasks</h1>
                     <div className="tasks-display-container">

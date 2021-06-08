@@ -9,10 +9,12 @@
     display: flex;
     flex-direction: column;
     width: 800px;
-    background-color: #fef0ec;
-    color: #333432;
+    background-color: #FFB355;
+    color: #3F4141;
     padding: 20px;
     margin-top: 20px;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
 }
 
 .projects-display-container{
@@ -22,12 +24,14 @@
 }
 
 .project-container{
-    border: 2px solid black;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
     width: 200px;
-    height: 300px;
-    margin: 10px;
+    height: 150px;
+    margin-right: 10px;
     padding: 5px;
-    color: #f4633e;
+    color: #3F4141;
+    font-size: .7em;
 }
 
 .team-name-plus-delete {
@@ -35,6 +39,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    color: #57D4D4;
 }
 
 .team-delete-button {

@@ -1,10 +1,12 @@
 .project-info-container{
-    border: 3px solid black;
+    border: 2px solid #3F4141;
     margin: 5px;
     padding: 15px;
     width: 200px;
-    background-color: #fef0ec;
-    margin-top: 20px;
+    background-color:#FFB355;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #3F4141;
 }
 
 .project-due-date {
@@ -30,10 +32,12 @@
     display: flex;
     flex-direction: column;
     width: 800px;
-    background-color: #fef0ec;
-    color: #333432;
+    background-color:#FFB355;
+    color: #3F4141;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 5px;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
 }
 
 .tasks-display-container{
@@ -43,15 +47,24 @@
 }
 
 .task-container{
-    border: 2px solid black;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
     width: 200px;
-    height: 300px;
+    height: 200px;
     margin: 10px;
     padding: 5px;
-    color: #f4633e;
+    color: #3F4141;
+    font-size: .7em;
 }
 
 .project-delete-button {
     height: 40px;
-    background-color: #f4633e;
+    background-color: #E74E3D;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    color: #3F4141;
+}
+
+h1 {
+    font-size: 3em;
 }
