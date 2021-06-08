@@ -33,38 +33,40 @@ const LoginForm = () => {
   }
 
   return (
+  <div id='login-page'>
     <div id='loginFormPage'>
-    <h1>Login Page</h1>
-    <form onSubmit={onLogin} className='login-inputs'>
-      <div className='the-errors'>
-        {errors.map((error) => (
-          <div>{error}</div>
-        ))}
-      </div>
-      <div className='email-container'>
-        <label className='the-labels'
-        htmlFor="email">Email</label>
-        <input className='email-input'
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div className='password-container'>
-        <label  className='the-labels' htmlFor="password">Password</label>
-        <input 
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
+      <form onSubmit={onLogin} className='login-inputs'>
+        <h3>Log in</h3>
+        <div className='the-errors'>
+          {errors.map((error) => (
+            <div>{error}</div>
+            ))}
+        </div>
+        <div className='email-container'>
+          <label className='the-labels'
+          htmlFor="email">Email</label>
+          <input className='email-input'
+            name="email"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={updateEmail}
+            />
+        </div>
+        <div className='password-container'>
+          <label  className='the-labels' htmlFor="password">Password</label>
+          <input 
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={updatePassword}
+            />
+        </div>
         <button className='login-btn' type="submit">Login</button>
-      </div>
-    </form>
+      </form>
     </div>
+  </div>
   );
 };
 

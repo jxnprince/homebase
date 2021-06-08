@@ -50,17 +50,13 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to={`/users/${user.id}/teams`} />;
-  } else {
-      return <Redirect to="/" />
-  }
+  if (user) return <Redirect to={`/users/${user.id}/teams`} />;
 
   return (
     <div className='signupFormPage'>
-    <h1 className='signup-title'>SignUp Page</h1>
     <form className='signup-inputs' onSubmit={onSignUp}>
-      <div>
+        <h3> Sign up </h3>
+      <div class="signupInputandLabel">
         <label>First Name</label>
         <input className='the-in'
           type="text"
@@ -69,7 +65,7 @@ const SignUpForm = () => {
           value={firstname}
         ></input>
       </div>
-      <div>
+      <div class="signupInputandLabel">
         <label>Last Name</label>
         <input className='the-in'
           type="text"
@@ -78,7 +74,7 @@ const SignUpForm = () => {
           value={lastname}
         ></input>
       </div>
-      <div>
+      <div class="signupInputandLabel">
         <label>User Name</label>
         <input className='the-in'
           type="text"
@@ -87,7 +83,7 @@ const SignUpForm = () => {
           value={username}
         ></input>
       </div>
-      <div>
+      <div class="signupInputandLabel">
         <label className='email-in'>Email</label>
         <input className='the-in'
           type="text"
@@ -96,7 +92,7 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
-      <div>
+      <div class="signupInputandLabel">
         <label className='avatar-in'>User Avatar</label>
         <input className='the-in'
           type="text"
@@ -105,7 +101,7 @@ const SignUpForm = () => {
           value={user_avatar}
         ></input>
       </div>
-      <div>
+      <div class="signupInputandLabel">
         <label className='password-in'>Password</label>
         <input className='the-in'
           type="password"
@@ -114,7 +110,7 @@ const SignUpForm = () => {
           value={password}
         ></input>
       </div>
-      <div>
+      <div class="signupInputandLabel">
         <label className='rpt-password-in'>Confirm Password</label>
         <input className='the-in'
           type="password"
