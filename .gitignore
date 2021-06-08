@@ -105,8 +105,5 @@ dist
 
 /__pycache__
 .devcontainer
-<<<<<<< HEAD
-
-=======
 __pycache__/
->>>>>>> main
+.venv
