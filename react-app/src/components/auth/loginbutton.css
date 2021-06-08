@@ -1,0 +1,23 @@
+#logout-btn{
+  color: #F5F5F5;
+  background-color: #3F4141;
+  outline: none;
+  border: 2px solid #3F4141;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #3f414183;
+}
+
+#logout-btn:hover{
+  color: #3F4141;
+  background-color: #F5F5F5;
+  box-shadow: 3px 3px 3px #3f414183;
+}
+
+#logout-btn:active{
+  color: #3F4141;
+  font-weight: 600;
+  background-color: #F5F5F5;
+  outline: none;
+  border: 1px solid #3F4141;
+  box-shadow: 1px 1px 1px #3f414183;
+}

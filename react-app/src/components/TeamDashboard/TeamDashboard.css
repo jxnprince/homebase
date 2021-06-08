@@ -1,4 +1,4 @@
-.team-dashboard-container{
+/* .team-dashboard-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -44,8 +44,6 @@
 
 .team-delete-button {
     height: 40px;
-    background-color: #E74E3D;
-    border: 2px solid #3F4141;
-    border-radius: 5px;
-    color: #3F4141;
-}
+    background-color: #3396ff;
+    opacity: 80%;
+} */

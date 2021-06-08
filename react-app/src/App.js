@@ -34,7 +34,7 @@ function App() {
   }
   return (
     <BrowserRouter>
-      {/* <NavigationBar /> */}
+      <NavigationBar />
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm />
@@ -70,7 +70,7 @@ function App() {
         exact={true}>
           <SingleTaskPage />
       </ProtectedRoute>
-      <Route path="" exact={true}>
+      <Route path="/" exact={true}>
           <SplashPage />
           <FooterComponent />
         </Route>

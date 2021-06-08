@@ -11,7 +11,7 @@ const ProjectsDisplay = ({userProjects, userId}) => {
                 {userProjects && userProjects.userProjects.map((project) => (
                 <a href={`/users/${userId}/teams/${project.teamId}/projects/${project.id}`}>
                     <div className="project-container">
-                        <h1>{project.projectTitle}</h1>
+                        <h2>{project.projectTitle}</h2>
                     </div>
                 </a>
                 ))}

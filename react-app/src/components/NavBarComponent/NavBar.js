@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './NavBar.css'
 import LogoutButton from '../auth/LogoutButton';
-import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
 import  { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/session"
 
@@ -14,60 +14,39 @@ const NavigationBar = () => {
 
   if (!user){
     return (
-      <Navbar className='whole-nav' fixed='top'>
-        <Container>
-              <Nav>
-                <Nav.Link href='/' exact="true" className="active-home">HomeBase</Nav.Link>
-                <Nav.Link href='/login' exact="true" className="active-gst-login">Login</Nav.Link>
-                <Nav.Link onClick={guestLogin} exact="true" className="active-login">Guest Login</Nav.Link>
-                <Nav.Link href='/sign-up' exact="true" className="active-signup">Sign Up</Nav.Link>
-              </Nav>
-        </Container>
-      </Navbar>
+      <div className='whole-nav'>
+      
+        <div className='left-item'>
+          <a href='/' exact="true" className="active-home">HomeBase</a>
+        </div>
+        <div id='nav-spacer'/>
+        
+        <div className='right-items'>
+          <a href='/login' exact="true" className="active-gst-login">Login</a>
+          <a onClick={guestLogin} exact="true" className="active-login">Guest Login</a>
+          <a href='/sign-up' exact="true" className="active-signup">Sign Up</a>
+        </div>
+  
+      </div>
     )
   }else{
     return (
-      <Navbar className='whole-nav' fixed='top'>
-        <Container>
-              <Nav>
-                <Nav.Link href='/login' exact="true" className="active-home">HomeBase</Nav.Link>
-                <NavDropdown title={user.username} id="collasible-nav-dropdown">
-                  <NavDropdown.Item href={`/users/${user.id}`}>{user.username}'s Dashboard</NavDropdown.Item>
-                  <NavDropdown.Item title='Logout'><LogoutButton /></NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-        </Container>
-      </Navbar>
+      <div className='whole-nav'>
+        <div className='left-item'>
+          <a href='/' exact="true" className="active-home">HomeBase</a>
+        </div>
+
+        <div id='nav-spacer-main'/>
+
+        <div className='right-items'>
+          <NavDropdown title={user.username} id="collasible-nav-dropdown">
+            <NavDropdown.Item href={`/users/${user.id}/teams`}>{user.username}'s Dashboard</NavDropdown.Item>
+            <NavDropdown.Item title='Logout'><LogoutButton /></NavDropdown.Item>
+          </NavDropdown>
+        </div>
+      </div>
 )
 }
 }
-
-// const NavigationBar = () => {
-//   return (
-//     <nav>
-//       <ul>
-//         <li>
-//           <NavLink to="/" exact={true} activeClassName="active">
-//             Home
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to="/login" exact={true} activeClassName="active">
-//             Login
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to="/sign-up" exact={true} activeClassName="active">
-//             Sign Up
-//           </NavLink>
-//         </li>
-//         <li>
-//           <LogoutButton />
-//         </li>
-//       </ul>
-//     </nav>
-
-//   );
-// }
 
 export default NavigationBar;

@@ -1,11 +1,35 @@
 .add-team-form{
+    color: #3F4141;
+    width: 10vw;
+    height: 15vh;
+    margin: 0.5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
-    border: 2px solid black;
-    width: 200px;
-    height: 300px;
-    margin: 10px;
-    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-team-form>input{
+    height: 0.75vh;
+    width: 8vw;
+    padding: 1vw;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+    outline: none;
+    overflow: scroll;
+}
+
+.add-team-form>input:focus{
+    padding: 1vw;
+    border: 1px solid #3F4141;
+    box-shadow: 1px 1px 1px #3f414183;
 }
 
 .add-team-label{
@@ -13,15 +37,29 @@
     text-align: center;
 }
 
-.add-team-input{
-    height: 40px;
-    margin-bottom: 10px;
-    width: 185px;
-    margin-left: 0px;
+.add-team-submit{
+  color: #F5F5F5;
+  background-color: #3F4141;
+  outline: none;
+  border: 2px solid #3F4141;
+  border-radius: 5px;
+  margin-top: 1vh;
+  box-shadow: 2px 2px 2px #3f414183;
 }
 
-.add-team-submit{
-    height: 40px;
-    background-color: #3396ff;
-    opacity: 80%;
+.add-team-submit:hover{
+  color: #3F4141;
+  background-color: #F5F5F5;
+  outline: none;
+  border: 2px solid #3F4141;
+  box-shadow: 3px 3px 3px #3f414183;
+}
+
+.add-team-submit:active{
+  color: #3F4141;
+  font-weight: 600;
+  background-color: #F5F5F5;
+  outline: none;
+  border: 1px solid #3F4141;
+  box-shadow: 1px 1px 1px #3f414183;
 }

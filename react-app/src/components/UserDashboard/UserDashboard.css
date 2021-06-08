@@ -2,7 +2,11 @@
     display: flex;
     flex-direction: row;
     margin: 20px;
-    justify-content: space-around;
+    justify-content: flex-start;
+}
+
+.team-projects-container{
+    margin-left: 10vw;
 }
 
 .dashboard-title{
@@ -10,21 +14,24 @@
 }
 
 .user-info-inner-container {
+    max-width: 15vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
     border: 2px solid #3F4141;
     border-radius: 5px;
-    margin-top: 10px;
-    height: 300px;
-    width: 300px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    box-shadow: 2px 2px 2px #3f414183;
 }
 
 .user-avatar {
-    width: 70%;
+    max-width: 100%;
     border-radius: 50%;
+    border: 2px solid #3F4141;
     margin-bottom: 15px;
+    box-shadow: 2px 2px 2px #3f414183;
 }
 
 .user-details{
@@ -34,4 +41,15 @@
 
 #user-info-name {
     font-weight: bold;
+}
+
+.teams-display-component{
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+}
+.projects-display-component{
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
 }
