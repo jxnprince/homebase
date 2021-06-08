@@ -36,10 +36,6 @@ function App() {
     <BrowserRouter>
       <NavigationBar />
       <Switch>
-        <Route path="/" exact={true}>
-          <SplashPage />
-          <FooterComponent />
-        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
           <FooterComponent />
@@ -74,6 +70,10 @@ function App() {
         exact={true}>
           <SingleTaskPage />
       </ProtectedRoute>
+      <Route path="" exact={true}>
+          <SplashPage />
+          <FooterComponent />
+        </Route>
       <ProtectedRoute>
         <h1>Looks like this page doesn't exist...</h1>
         <FooterComponent />
