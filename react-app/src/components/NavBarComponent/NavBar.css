@@ -1,26 +1,52 @@
-.whole-nav { 
-    background-color: #FEF0EC;
-    display: inline-block;
-    box-shadow: 4px 1px #F4633E; 
+.whole-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 5vh;
+    background-color: #3F4141;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  
+  .left-item{
+    margin-left: 2vw;
+  }
+  
+  .left-item>a{
+    color: #F5F5F5;
+  }
+  
+  .right-items{
+    display: flex;
+    margin-right: 2vw;
+    min-width: 10vw;
+    justify-content: space-evenly;
+  }
+  
+  .right-items>a{
+    color: #F5F5F5;
+    padding-right: 1vw;
+}
+  
+  .right-items>a:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color: #57D4D4;
 }
 
-/* .nav-item{
-    color: #333432;
+#nav-spacer{
+  width: 75vw;
+  height: 100%;
+}
 
-} */
+#nav-spacer-main{
+  width: 95vw;
+  height: 100%;
+}
 
-.active-home {
-  color: orangered;
-  padding: 7vw 1vw;
-}
-.active-gst-login {
-  color: rgb(120, 64, 224);
-}
-.active-login {
-  color: rgb(120, 64, 224);
-}
-.active-signup {
-  color: rgb(120, 64, 224);
-  place-self: end;
-  margin-left: 70px;
+.dropdown>a{
+  color: #F5F5F5;
+  text-decoration: none;
 }

@@ -70,7 +70,7 @@ function App() {
         exact={true}>
           <SingleTaskPage />
       </ProtectedRoute>
-      <Route path="" exact={true}>
+      <Route path="/" exact={true}>
           <SplashPage />
           <FooterComponent />
         </Route>
