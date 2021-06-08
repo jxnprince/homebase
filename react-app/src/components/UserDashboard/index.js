@@ -31,7 +31,6 @@ const UserDashboard = () => {
                 }
             </div>
             <div className="team-projects-container">
-                <h1 className="dashboard-title">User Dashboard</h1>
                 {teams && userProjects &&
                     <div>
                     <TeamsDisplay teams={teams} userId={userId}/>

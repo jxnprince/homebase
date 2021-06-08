@@ -38,9 +38,6 @@ div#signupFormPage {
   border-radius: 6px;
 
 }
-button {
-  border-radius: 6px;
-}
 
 .signup-btn {
   border-radius: 2px;
@@ -89,4 +86,3 @@ button {
   padding: 2px;
   /* padding-top: 1vw; */
 }
-

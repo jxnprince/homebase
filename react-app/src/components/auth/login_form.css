@@ -4,10 +4,7 @@ div#loginFormPage {
   margin-left: 35vw;
 }
 
-h1 {
-  color: #3396ff;
-  place-self: center;
-}
+
 .loginFormPage {
   /* background-color: thistle; */
   display: flex;
@@ -24,7 +21,7 @@ h1 {
 
 .the-in {
   background-color: #EFF6FB;
-  justify-content: left;  
+  justify-content: left;
   margin-left: 35px;
   width: 140px;
   border-radius: 6px;
@@ -99,4 +96,3 @@ div.email-container {
 .the-errors {
   color: rgb(231, 18, 18);
 }
-

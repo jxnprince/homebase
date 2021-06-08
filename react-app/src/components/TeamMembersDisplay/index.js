@@ -14,7 +14,7 @@ const TeamMembersDisplay = ({teamId, userId}) => {
 
     return (
         <div className="team-members-container">
-            <h5>Team Members:</h5>
+            <h5 id="member-title">Team Members:</h5>
             {teammates && teammates.teammates.map((member) => (
                 <div>
                     <p>{member}</p>
