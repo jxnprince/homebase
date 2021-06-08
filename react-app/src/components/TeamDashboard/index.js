@@ -42,7 +42,7 @@ const TeamDashboard = () => {
                 {team &&
                     <div>
                         <div className="team-name-plus-delete">
-                            <h1>Team: {team.team.teamName}</h1>
+                            <h1>{team.team.teamName} Team</h1>
                             <form onSubmit={handleSubmit}>
                                 <button type="submit" className="team-delete-button">Delete Team</button>
                             </form>
