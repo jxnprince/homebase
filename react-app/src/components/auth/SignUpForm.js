@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './signup_form.css'
-// import './signup_form_dark.css'
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -52,7 +51,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/users/${user.id}" />;
+    return <Redirect to={`/users/${user.id}/teams`} />;
   } else {
       return <Redirect to="/" />
   }

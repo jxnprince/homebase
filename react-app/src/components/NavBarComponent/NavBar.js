@@ -40,7 +40,7 @@ const NavigationBar = () => {
 
         <div className='right-items'>
           <NavDropdown title={user.username} id="collasible-nav-dropdown">
-            <NavDropdown.Item href={`/users/${user.id}`}>{user.username}'s Dashboard</NavDropdown.Item>
+            <NavDropdown.Item href={`/users/${user.id}/teams`}>{user.username}'s Dashboard</NavDropdown.Item>
             <NavDropdown.Item title='Logout'><LogoutButton /></NavDropdown.Item>
           </NavDropdown>
         </div>
