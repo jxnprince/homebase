@@ -36,6 +36,10 @@ function App() {
     <BrowserRouter>
       <NavigationBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <SplashPage />
+          <FooterComponent />
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
           <FooterComponent />
