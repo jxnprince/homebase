@@ -28,7 +28,7 @@ const AddTeamComponent = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="add-team-form">
-        <label className="add-team-label">Team Name:</label>
+        <label className="add-team-label">Create New Team</label>
         <input
           type="text"
           name="setTeamName"
@@ -37,7 +37,7 @@ const AddTeamComponent = () => {
           value={teamName}
           required
         ></input>
-        <button type="submit" className="add-team-submit">Create Team</button>
+        <button type="submit" className="add-team-submit">Create</button>
       </div>
     </form>
   );

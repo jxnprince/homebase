@@ -6,8 +6,9 @@ red: #E74E3D
 Dark Tone: #3F4141
 */
 
-a{
-    text-decoration: none;
+a,
+a:link{
+    text-decoration: none!important;
 }
 
 body{
