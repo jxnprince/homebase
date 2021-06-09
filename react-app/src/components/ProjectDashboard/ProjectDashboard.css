@@ -1,11 +1,12 @@
 .project-info-container{
     border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
     margin: 5px;
     padding: 15px;
     width: 200px;
     background-color:#FFB355;
     margin-bottom: 20px;
-    border-radius: 5px;
     color: #3F4141;
 }
 
@@ -38,6 +39,7 @@
     margin-top: 5px;
     border: 2px solid #3F4141;
     border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
 }
 
 .tasks-display-container{
@@ -49,6 +51,7 @@
 .task-container{
     border: 2px solid #3F4141;
     border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
     width: 200px;
     height: 200px;
     margin: 10px;
@@ -57,14 +60,23 @@
     font-size: .7em;
 }
 
+.task-container:hover{
+    color: #F5F5F5;
+    border: 2.5px solid #3F4141;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    margin: 0.5vw;
+    padding: 5px;
+    box-shadow: 3px 3px 3px #3f414183;
+    text-decoration: none;
+}
+
 .project-delete-button {
     height: 40px;
     background-color: #E74E3D;
     border: 2px solid #3F4141;
     border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
     color: #3F4141;
-}
-
-h1 {
-    font-size: 3em;
 }

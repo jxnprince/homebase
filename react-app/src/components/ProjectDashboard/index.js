@@ -60,7 +60,7 @@ const ProjectDashboard = () => {
                         {project && project.tasks.map((task) => (
                         <a href={`/users/${userId}/teams/${teamId}/projects/${projectId}/tasks/${task.id}`}>
                             <div className="task-container">
-                                <h1>{task.taskName}</h1>
+                                <h3>{task.taskName}</h3>
                                 <p>{task.taskBody}</p>
                                 <p>Due: {task.dueDate.slice(5,16)}</p>
                             </div>

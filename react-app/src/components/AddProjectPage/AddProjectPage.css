@@ -9,10 +9,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fef0ec;
+    background-color: #FFB355;
     width: 400px;
     height: 450px;
     margin-top: 50px;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
 }
 
 .add-project-page {
@@ -31,11 +34,32 @@
 
 .new-project-submit {
     margin-top: 30px;
-    background-color: #f4633e;
-    opacity: 90%;
     height: 40px;
-    border: 2px solid black;
+    width: 200px;
+    color: #F5F5F5;
+    background-color: #3F4141;
+    outline: none;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
 }
+
+.new-project-submit:hover{
+    color: #3F4141;
+    background-color: #F5F5F5;
+    outline: none;
+    border: 2px solid #3F4141;
+    box-shadow: 3px 3px 3px #3f414183;
+  }
+
+.new-project-submit:active{
+    color: #3F4141;
+    font-weight: 600;
+    background-color: #F5F5F5;
+    outline: none;
+    border: 1px solid #3F4141;
+    box-shadow: 1px 1px 1px #3f414183;
+  }
 
 #add-project-description {
     height: 100px;
@@ -46,4 +70,12 @@
 .project-due-date-input {
     width: 200px;
     margin-left: 0px;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+    height: 40px;
+}
+
+.project-due-date-input {
+    text-align: center;
 }

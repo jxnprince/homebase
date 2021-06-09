@@ -54,13 +54,13 @@ const TeamDashboard = () => {
                     <div className="projects-display-container">
                         <a href={`/users/${userId}/teams/${teamId}/add-project`}>
                             <div className="project-container">
-                                <h1>Create a Project</h1>
+                                <h3>Create a Project</h3>
                             </div>
                         </a>
                         {team && team.projects && team.projects.map((project) => (
                             <a href={`/users/${userId}/teams/${project.teamId}/projects/${project.id}`}>
                                 <div className="project-container">
-                                    <h1>{project.projectTitle}</h1>
+                                    <h3>{project.projectTitle}</h3>
                                 </div>
                             </a>
                         ))}
