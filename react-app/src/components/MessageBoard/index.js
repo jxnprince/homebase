@@ -9,7 +9,15 @@ const MessageBoard = () => {
   const dispatch = useDispatch();
   const teamComments = useSelector((state) => state.comments.comments);
   const { projectId } = useParams();
-  // const currentTeam = useSelector((state) => state.team.currentTeam);
+  const commentDateFormatter = (date) =>{
+    let arr = date.split(' ')
+    let dayArr = [arr[3][2], arr[3][3]]
+    let timeArr = arr[4].split(':')
+    let timeAttForm = [timeArr[1],timeArr[2]]
+    let newArr = [arr[0], arr[1], arr[2], dayArr.join(''), timeAttForm.join(':')]
+    date = newArr.join(' ')
+    return date
+  }
 
   useEffect(() => {
     dispatch(getProjectComments(projectId));
@@ -24,8 +32,8 @@ const MessageBoard = () => {
           <div className="comment-container">
             <div id="comment-body">{comment.commentBody}</div>
             <div id='post-credit'>
-              <div id="comment-username">-{comment.username}</div>
-              <div id="comment-created">{comment.createdAt}</div>
+              <div id="comment-username">- {comment.username}</div>
+              <div id="comment-created">{commentDateFormatter(comment.createdAt)}</div>
             </div>
           </div>
         ))}
