@@ -13,38 +13,52 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.add-team-form>input{
+    transition: all 0.5s;
+  }
+  
+  .add-team-form:hover{
+    box-shadow: 3px 5px 3px #3f414183;
+    text-decoration: none;
+  }
+  
+  .add-team-form>input{
     height: 0.75vh;
-    width: 8vw;
-    padding: 1vw;
+    width: 7vw;
+    padding: 0.5vw;
     border: 2px solid #3F4141;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #3f414183;
     outline: none;
     overflow: scroll;
+    transition: all 0.2s;
 }
 
 .add-team-form>input:focus{
-    padding: 1vw;
     border: 1px solid #3F4141;
     box-shadow: 1px 1px 1px #3f414183;
 }
 
 .add-team-label{
-    font-size: 20px;
+    font-size: 1rem;
+    font-weight: 600;
     text-align: center;
 }
 
 .add-team-submit{
+  height: 3vh;
+  width: 4vw;
+  min-width: 35px;
   color: #F5F5F5;
+  margin-top: 1vh;
   background-color: #3F4141;
-  outline: none;
   border: 2px solid #3F4141;
   border-radius: 5px;
-  margin-top: 1vh;
+  outline: none;
   box-shadow: 2px 2px 2px #3f414183;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .add-team-submit:hover{

@@ -8,7 +8,7 @@
 .signup-inputs{
   border: 2px solid #3F4141;
   border-radius: 5px;
-  height: 70vh;
+  height: 67vh;
   width: 25vw;
   padding: 2vh;
   display: flex;
@@ -16,10 +16,12 @@
   justify-content: center;
   overflow: scroll;
   box-shadow: 2px 2px 2px #3f414183;
+  transition: all 0.5s;
 }
 
-.signup-inputs>h3{
-  margin: 2vh;
+.signup-inputs:hover{
+  border-radius: 2.5px;
+  box-shadow: 3px 4px 3px #3f414183;
 }
 
 .signupInputandLabel{
@@ -28,16 +30,25 @@
   margin-bottom: 0.5vh;
 }
 
+.signupInputandLabel>label{
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-top: 1vh;
+}
+
 .signupInputandLabel>input{
     outline: none;
   color: #3F4141;
   border: 2px solid #3F4141;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #3f414183;
+  transition: all 0.25s;
 }
 
 .signupInputandLabel>input:focus{
   border: 1px solid #3F4141;
+  border-radius: 2.5px;
   box-shadow: 1px 1px 1px #3f414183;
 }
 
@@ -49,6 +60,7 @@
   border-radius: 5px;
   margin-top: 2vh;
   box-shadow: 2px 2px 2px #3f414183;
+    transition: all 0.25s;
 }
 
 .signup-inputs>button:hover{

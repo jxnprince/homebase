@@ -1,5 +1,5 @@
-div#signupFormPage {
-  display: flexbox;
+/* div>#signupFormPage {
+  display: flex;
   position: relative;
   margin-left: 40vw;
 }
@@ -11,7 +11,6 @@ div#signupFormPage {
 }
 
 .signupFormPage {
-  /* background-color: thistle; */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -47,7 +46,6 @@ div#signupFormPage {
   box-shadow: 0 0 4 px #FEF0EC;
   cursor: progress;
   font-weight: 700;
-  /* margin-left: 75px; */
   justify-self: center;
 
 }
@@ -57,31 +55,27 @@ div#signupFormPage {
   align-self: end;
   color: #FEF0EC;
   background-color: #FEF0EC;
+  transition: all 0.25s;
 
 }
 .email-in {
   color: #FEF0EC;
-  /* padding: 1vw; */
-  /* padding-top: 1vw; */
 }
 
 .username-input {
   color: #FEF0EC;
   padding: 2px;
   justify-content: space-around;
-  /* padding-top: 1vw; */
 }
 
 .password-in {
   color: #FEF0EC;
   padding: 2px;
-  /* padding-top: 1vw; */
 }
 
 
 .rpt-password-in {
   color: #FEF0EC;
   padding: 2px;
-  /* padding-top: 1vw; */
 }
-
+ */

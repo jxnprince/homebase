@@ -33,19 +33,19 @@ const TeamDashboard = () => {
                     <div>
                         <TeamMembersDisplay teamId={teamId} userId={userId}/>
                     </div>
-                    <div>
+                    <div id="add-delete-team">
                         <AddMemberComponent />
+                            <form onSubmit={handleSubmit}>
+                                <button type="submit" className="team-delete-button">Delete Team</button>
+                            </form>
                     </div>
                 </div>
             }
             <div>
                 {team &&
                     <div>
-                        <div className="team-name-plus-delete">
+                        <div className="team-name">
                             <h1>{team.team.teamName} Team</h1>
-                            <form onSubmit={handleSubmit}>
-                                <button type="submit" className="team-delete-button">Delete Team</button>
-                            </form>
                         </div>
                     </div>
                 }

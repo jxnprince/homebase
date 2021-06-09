@@ -24,6 +24,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 2px 2px 2px #3f414183;
+    overflow: hidden;
 }
 
 .user-avatar {

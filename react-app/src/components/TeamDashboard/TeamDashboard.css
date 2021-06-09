@@ -1,52 +1,54 @@
 .team-dashboard-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-top: 20px;
 }
-
-/* .projects-display-component{
-    display: flex;
-    flex-direction: column;
-    width: 800px;
-    background-color: #FFB355;
-    color: #3F4141;
-    padding: 20px;
-    margin-top: 20px;
-    border: 2px solid #3F4141;
-    border-radius: 5px;
+.team-dashboard-container>div{
+    margin-left: 3vw;
+    margin-right: 10vw;
 }
 
-.projects-display-container{
+.team-name {
     display: flex;
     flex-direction: row;
-    overflow: scroll;
-}
-
-.project-container{
-    border: 2px solid #3F4141;
-    border-radius: 5px;
-    width: 200px;
-    height: 150px;
-    margin-right: 10px;
-    padding: 5px;
-    color: #3F4141;
-    font-size: .7em;
-} */
-
-.team-name-plus-delete {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     color: #57D4D4;
 }
 
 .team-delete-button {
     height: 40px;
+    color: #3F4141;
     background-color: #E74E3D;
     border: 2px solid #3F4141;
     border-radius: 5px;
+    box-shadow: 2px 3px 2px #3f414183;
+    transition: all 0.5s;
+}
+
+.team-delete-button:hover {
+    color: #E74E3D;
+    background-color: #3F4141;
+    box-shadow: 3px 4px 3px #3f414183;
+}
+
+.team-delete-button:active {
+    font-weight: 500;
+    color: #E74E3D;
+    background-color: #3F4141;
+    box-shadow: 1px 1px 1px #3f414183;
+}
+
+#add-delete-team{
+    border: 2px solid #3F4141;
+    border-radius: 5px;
     box-shadow: 2px 2px 2px #3f414183;
+    margin: 5px;
+    padding: 15px;
+    width: 200px;
+    background-color: #57D4D4;
     color: #3F4141;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

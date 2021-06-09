@@ -20,22 +20,22 @@ const AddCommentComponent = () => {
     dispatch(getProjectComments(projectId));
   };
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <form className="comment-form-container" onSubmit={handleSubmit}>
+        {/* <h3 id='write-a-comment'>Write a Comment</h3> */}
       <div className="comment-space">
-        <label>
-          <h5>Write a Comment</h5>
-        </label>
         <input
+          id='comment-input'
+          placeholder='Write a Comment'
           type="text"
           name="setComment"
           onChange={(e) => setCommentBody(e.target.value)}
           value={commentBody}
           required
         ></input>
-      </div>
-      <button className="add-comment-btn" type="submit">
+      <button id="add-comment-btn" type="submit">
         Add Comment
       </button>
+      </div>
     </form>
   );
 };

@@ -9,7 +9,7 @@
 #loginFormPage{
   border: 2px solid #3F4141;
   border-radius: 5px;
-  height: 25vh;
+  height: 30vh;
   width: 20vw;
   padding: 1vh;
   display: flex;
@@ -17,6 +17,12 @@
   justify-content: center;
   overflow: scroll;
   box-shadow: 2px 2px 2px #3f414183;
+  transition: all 0.5s;
+}
+
+#loginFormPage:hover{
+  box-shadow: 3px 4px 3px #3f414183;
+  border-radius: 2.5px;
 }
 
 .login-inputs{
@@ -37,10 +43,12 @@
   border: 2px solid #3F4141;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #3f414183;
+  transition: all 0.25s;
 }
 
 .email-container>input:focus{
   border: 1px solid #3F4141;
+  border-radius: 2.5px;
 }
 
 .password-container{
@@ -61,12 +69,13 @@
   border: 2px solid #3F4141;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #3f414183;
+  transition: all 0.25s;
 }
 
 .password-container>input:focus{
   border: 1px solid #3F4141;
   box-shadow: 1px 1px 1px #3f414183;
-
+  border-radius: 2.5px;
 }
 
 .login-btn{
@@ -76,6 +85,7 @@
   border: 2px solid #3F4141;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #3f414183;
+  transition: all 0.25s;
 }
 
 .login-btn:hover{

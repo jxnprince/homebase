@@ -6,14 +6,6 @@
 }
 
 .add-member-container{
-    border: 2px solid #3F4141;
-    border-radius: 5px;
-    box-shadow: 2px 2px 2px #3f414183;
-    margin: 5px;
-    padding: 15px;
-    width: 200px;
-    background-color: #57D4D4;
-    color: #3F4141;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,6 +15,8 @@
     color: #333432;
     margin-left: 5px;
     text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .new-member-submit{
@@ -34,15 +28,22 @@
     border: 2px solid #3F4141;
     border-radius: 5px;
     margin-top: 2vh;
-    box-shadow: 2px 2px 2px #3f414183;
+    box-shadow: 2px 3px 2px #3f414183;
+    transition: all 0.25s;
 }
 
 .new-member-submit:hover{
     color: #3F4141;
     background-color: #F5F5F5;
     outline: none;
-    border: 2px solid #3F4141;
-    box-shadow: 3px 3px 3px #3f414183;
+    border: 2.5px solid #3F4141;
+    box-shadow: 3px 4px 3px #3f414183;
+  }
+
+.new-member-submit:active{
+    font-weight: 500;
+    border: 1.5px solid #3F4141;
+    box-shadow: 1px 2px 1px #3f414183;
   }
 
 .new-member-input{
@@ -50,14 +51,13 @@
     width: 180px;
     border: 2px solid #3F4141;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px #3f414183;
+    box-shadow: 2px 3px 2px #3f414183;
+    outline: none;
+    transition: all 0.5s ease-out;
 }
 
-.new-member-submit:active{
-    color: #3F4141;
-    font-weight: 600;
-    background-color: #F5F5F5;
-    outline: none;
-    border: 1px solid #3F4141;
-    box-shadow: 1px 1px 1px #3f414183;
-  }
+.new-member-input:focus{
+    border: 1.5px solid #3F4141;
+    border-radius: 2.5px;
+    box-shadow: 1px 2px 1px #3f414183;
+}

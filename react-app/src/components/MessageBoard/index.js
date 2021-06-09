@@ -17,17 +17,23 @@ const MessageBoard = () => {
 
   return (
     <div className="board-container">
-      <h1 className="mb-title">Message Board</h1>
-      {teamComments?.comments.map((comment, i) => (
-        <div className="comment-container">
-          <div className="comment-body">
-            {comment.commentBody}
-            <span className="comment-detail">         By: {comment.username}</span>
-            <span className="comment-detail">       | Posted: {comment.createdAt}</span>
+      <div id='static-heading-elements'>
+        <h1 className="mb-title">Message Board</h1>
+        <div id="internal-comment-div">
+        {teamComments?.comments.map((comment, i) => (
+          <div className="comment-container">
+            <div id="comment-body">{comment.commentBody}</div>
+            <div id='post-credit'>
+              <div id="comment-username">-{comment.username}</div>
+              <div id="comment-created">{comment.createdAt}</div>
+            </div>
           </div>
+        ))}
         </div>
-      ))}
-      <AddCommentComponent />
+      </div>
+      <div id='add-comment'>
+        <AddCommentComponent />
+      </div>
     </div>
   );
 };

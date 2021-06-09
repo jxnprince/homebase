@@ -1,13 +1,18 @@
 .team-members-container{
     border: 2px solid #3F4141;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px #3f414183;
+    box-shadow: 2px 3px 2px #3f414183;
     margin: 5px;
     padding: 15px;
     width: 200px;
     background-color: #57D4D4;
     color: #3F4141;
 }
+
+/* .team-members-container:hover{
+    border-radius: 2.5px;
+    box-shadow: 3px 4px 3px #3f414183;
+} */
 
 #member-title {
     margin-bottom: 15px;
