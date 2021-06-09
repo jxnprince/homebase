@@ -25,20 +25,31 @@ const SingleTaskPage = () => {
         }
     };
 
+      const dateFormatter = (date) =>{
+    let arr = date.split(' ')
+    let dayArr = [arr[3][2], arr[3][3]]
+    let timeArr = arr[4].split(':')
+    let timeAttForm = [timeArr[1],timeArr[2]]
+    let newArr = [arr[0], arr[1], arr[2], dayArr.join(''), timeAttForm.join(':')]
+    date = newArr.join(' ')
+    return date
+  }
+
     return (
-        <div className="single-task-container">
-            {task && 
-            <div>
-                <h1>{task.taskName}</h1>
-                <p>{task.taskBody}</p>
-                <p>{task.dueDate}</p>
-                <p>{task.assignedUserId}</p>
-                <form onSubmit={handleSubmit}>
-                    <button>Delete Task</button>
-                    <input type="checkbox" value={task.completed}></input>
-                </form>
+        <div id='single-class-page'>
+            <div className="single-task-container">
+                {task && 
+                <div>
+                    <h3 id='single-task-name'>{task.taskName}</h3>
+                    <p id='single-task-body'>{task.taskBody}</p>
+                    <p id='single-task-date'>Due: {dateFormatter(task.dueDate)}</p>
+                    <form onSubmit={handleSubmit}>
+                        <button>Delete Task</button>
+                        <input type="checkbox" value={task.completed}></input>
+                    </form>
             </div>
             }
+        </div>
         </div>
     )
 

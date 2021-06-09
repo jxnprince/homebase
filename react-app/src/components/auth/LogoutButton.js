@@ -6,9 +6,9 @@ import './loginbutton.css'
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
-  const onLogout = async (e) => {
-    await dispatch(logout());
-    return <Redirect to="/" />
+  const onLogout = (e) => {
+    dispatch(logout());
+    return <Redirect to="/" exact={true}/>
   };
 
   return <button onClick={onLogout} id="logout-btn">Logout</button>;

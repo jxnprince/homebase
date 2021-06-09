@@ -62,7 +62,7 @@
 .new-project-submit:active{
     color: #3F4141;
     font-weight: 600;
-    background-color: #F5F5F5;
+    background-color: #FFB355;
     outline: none;
     border: 1px solid #3F4141;
     box-shadow: 1px 1px 1px #3f414183;
@@ -92,6 +92,7 @@
     border-radius: 2.5px;
     box-shadow: 1px 2px 1px #3f414183;
 }
+
 
 .project-due-date-input {
     text-align: center;

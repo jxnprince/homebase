@@ -13,7 +13,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #57D4D4;
+    color: #3F4141;
+    text-shadow: 1px 1px 1px #3f414185;
 }
 
 .team-delete-button {
