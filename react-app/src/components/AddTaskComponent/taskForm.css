@@ -1,8 +1,81 @@
 .taskForm{
-    display: inline-block;
-    max-width: 15%;
-    padding-left: 45%;
-    padding-top: 5%;
-    /* padding-right: 50%; */
-    /* background-color: grey; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFB355;
+    width: 400px;
+    height: 500px;
+    margin-top: 50px;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
 }
+
+.add-task-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.add-task-page {
+    display: flex;
+    justify-content: center;
+}
+
+.create-task-title {
+    margin-bottom: 10px;
+}
+
+.add-task-input,
+.add-task-description,
+.add-task-person {
+    width: 200px;
+    margin-left: 0px;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+    height: 30px;
+}
+
+.add-task-label {
+    width: 200px;
+    margin-top: 5px;
+}
+
+.add-task-description {
+    height: 100px;
+}
+
+#task-due-date-input {
+    text-align: center;
+}
+
+.new-task-submit {
+    margin-top: 30px;
+    height: 40px;
+    width: 200px;
+    color: #F5F5F5;
+    background-color: #3F4141;
+    outline: none;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+}
+
+.new-task-submit:hover{
+    color: #3F4141;
+    background-color: #F5F5F5;
+    outline: none;
+    border: 2px solid #3F4141;
+    box-shadow: 3px 3px 3px #3f414183;
+  }
+
+.new-task-submit:active{
+    color: #3F4141;
+    font-weight: 600;
+    background-color: #F5F5F5;
+    outline: none;
+    border: 1px solid #3F4141;
+    box-shadow: 1px 1px 1px #3f414183;
+  }

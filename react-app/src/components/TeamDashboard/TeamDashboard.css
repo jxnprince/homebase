@@ -1,11 +1,11 @@
-/* .team-dashboard-container{
+.team-dashboard-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-top: 20px;
 }
 
-.projects-display-component{
+/* .projects-display-component{
     display: flex;
     flex-direction: column;
     width: 800px;
@@ -32,7 +32,7 @@
     padding: 5px;
     color: #3F4141;
     font-size: .7em;
-}
+} */
 
 .team-name-plus-delete {
     display: flex;
@@ -44,6 +44,9 @@
 
 .team-delete-button {
     height: 40px;
-    background-color: #3396ff;
-    opacity: 80%;
-} */
+    background-color: #E74E3D;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+    color: #3F4141;
+}

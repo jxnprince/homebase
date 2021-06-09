@@ -43,56 +43,64 @@ const AddTaskComponent = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='taskForm'>
-        <label>Task Name</label>
-        <input
-          placeholder='Task Name'
-          type="text"
-          name="setTaskName"
-          onChange={(e) => setTaskName(e.target.value)}
-          value={taskName}
-          required>
-        </input>
-        <label>Description</label>
-        <textarea
-          placeholder='Description'
-          type="text"
-          name="setTaskBody"
-          onChange={(e) => setTaskBody(e.target.value)}
-          value={taskBody}>
-        </textarea>
-        <label>Due Date</label>
-          <input
-          placeholder='Due Date'
-          type="text"
-          name="setDueDate"
-          onChange={(e) => setDueDate(e.target.value)}
-          value={dueDate}
-          required>
-        </input>
-        {/* <DatePicker
-          type="date"
-          name="setDueDate"
-          selected={dueDate}
-          onChange={dueDate => setDueDate(dueDate)}
-          value={ dueDate }
-          required /> */}
-        <label>Assigned User</label>
-        <select
-          placeholder="Assign Team-member"
-          type="text"
-          name="setAssignedUserId"
-          onChange={(e) => setAssignedUserId(e.target.value)}
-          value={assignedUserId}
-          required>
-            {team && team.users.map((user)=>{
-              return <option key={user.id} value={user.id}>{user.username}</option>
-            })}
-        </select>
-      <button type="submit">Create Task</button>
-      </div>
-    </form>
+    <div className="add-task-page">
+        <form onSubmit={handleSubmit} className='taskForm'>
+        <div className="add-task-container">
+            <h4 className="create-task-title">Create Task</h4>
+            <label className="add-task-label">Task Name</label>
+            <input
+                // placeholder='Task Name'
+                className="add-task-input"
+                type="text"
+                name="setTaskName"
+                onChange={(e) => setTaskName(e.target.value)}
+                value={taskName}
+                required>
+            </input>
+            <label className="add-task-label">Description</label>
+            <textarea
+                // placeholder='Description'
+                type="text"
+                className="add-task-description"
+                name="setTaskBody"
+                onChange={(e) => setTaskBody(e.target.value)}
+                value={taskBody}>
+            </textarea>
+            <label className="add-task-label">Due Date</label>
+            <input
+                placeholder='YYYY-MM-DD'
+                type="text"
+                id="task-due-date-input"
+                className="add-task-input"
+                name="setDueDate"
+                onChange={(e) => setDueDate(e.target.value)}
+                value={dueDate}
+                required>
+            </input>
+            {/* <DatePicker
+            type="date"
+            name="setDueDate"
+            selected={dueDate}
+            onChange={dueDate => setDueDate(dueDate)}
+            value={ dueDate }
+            required /> */}
+            <label className="add-task-label">Assigned User</label>
+            <select
+                placeholder="Assign Team-member"
+                type="text"
+                className="add-task-person"
+                name="setAssignedUserId"
+                onChange={(e) => setAssignedUserId(e.target.value)}
+                value={assignedUserId}
+                required>
+                {team && team.users.map((user)=>{
+                return <option key={user.id} value={user.id}>{user.username}</option>
+                })}
+            </select>
+        <button type="submit" className="new-task-submit">Create Task</button>
+        </div>
+        </form>
+    </div>
   );
 };
 

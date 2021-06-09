@@ -2,14 +2,21 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
-    margin-top: 15px
+    margin-top: 15px;
 }
 
 .add-member-container{
-    color: #333432;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+    margin: 5px;
+    padding: 15px;
+    width: 200px;
+    background-color: #57D4D4;
+    color: #3F4141;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
 }
 
 .add-member-label{
@@ -19,14 +26,38 @@
 }
 
 .new-member-submit{
-    background-color: #eff6fb;
-    margin-left: 10px;
-    margin-top: 10px;
     height: 40px;
+    width: 180px;
+    color: #F5F5F5;
+    background-color: #3F4141;
+    outline: none;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    margin-top: 2vh;
+    box-shadow: 2px 2px 2px #3f414183;
 }
 
+.new-member-submit:hover{
+    color: #3F4141;
+    background-color: #F5F5F5;
+    outline: none;
+    border: 2px solid #3F4141;
+    box-shadow: 3px 3px 3px #3f414183;
+  }
+
 .new-member-input{
-    margin-left: 10px;
     height: 40px;
-    width: 200px;
+    width: 180px;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
 }
+
+.new-member-submit:active{
+    color: #3F4141;
+    font-weight: 600;
+    background-color: #F5F5F5;
+    outline: none;
+    border: 1px solid #3F4141;
+    box-shadow: 1px 1px 1px #3f414183;
+  }
