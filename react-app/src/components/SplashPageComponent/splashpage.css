@@ -7,7 +7,14 @@
   justify-content: center;
 }
 
+#splash-logo{
+  filter: drop-shadow(1px 1px 1px #3F4141);
+  transition: all 0.5s;
+}
+#splash-logo:hover{
+  filter: drop-shadow(3px 4px 3px #3F4141);
+}
+
 .splash-blurb{
   color:#3F4141;
-  /* text-shadow: 1px 1px 1px #3F4141; */
 }

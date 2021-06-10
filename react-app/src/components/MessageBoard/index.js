@@ -13,8 +13,8 @@ const MessageBoard = () => {
     let arr = date.split(' ')
     let dayArr = [arr[3][2], arr[3][3]]
     let timeArr = arr[4].split(':')
-    let timeAttForm = [timeArr[1],timeArr[2]]
-    let newArr = [arr[0], arr[1], arr[2], dayArr.join(''), timeAttForm.join(':')]
+    let timeArrForm = [timeArr[0],timeArr[1]]
+    let newArr = [arr[1], arr[2], dayArr.join(''), timeArrForm.join(':')]
     date = newArr.join(' ')
     return date
   }

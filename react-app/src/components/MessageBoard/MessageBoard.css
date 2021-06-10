@@ -52,10 +52,11 @@
   margin-top: 1vh;
   margin-bottom: 1vh;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: center;
   box-shadow: 2px 3px 2px #3f414183;
-  overflow: hidden;
+  overflow-x: scroll;
   border: 1px solid #3F4141;
   font-size: 0.75rem;
   font-weight: 600;
@@ -83,4 +84,5 @@
 #comment-created{
   font-size: 0.65rem;
   font-weight: 400;
+  padding-left: 1vw;
 }

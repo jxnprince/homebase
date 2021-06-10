@@ -38,6 +38,7 @@
     cursor: pointer;
     text-decoration: none;
     color: #57D4D4;
+    font-weight: 600;
 }
 
 #nav-spacer{
@@ -49,7 +50,7 @@
 #nav-spacer-main{
   width: 90vw;
   height: 100%;
-  color: brown;
+  /* color: brown; */
 }
 
 .dropdown>a{
