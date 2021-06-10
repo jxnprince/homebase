@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #FFB355;
+    background-color: #feb66a;
     width: 400px;
     height: 500px;
     margin-top: 50px;
@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: scroll;
 }
 
 .add-task-page {
@@ -27,6 +28,7 @@
     margin-bottom: 10px;
 }
 
+
 .add-task-input,
 .add-task-description,
 .add-task-person {
@@ -34,9 +36,18 @@
     margin-left: 0px;
     border: 2px solid #3F4141;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px #3f414183;
+    box-shadow: 2px 3px 2px #3f414183;
     height: 30px;
+    outline: none;
 }
+
+.add-task-input:focus,
+.add-task-description:focus,
+.add-task-person:focus {
+    border: 1.5px solid #3F4141;
+    box-shadow: 1px 2px 1px #3f414183;
+}
+
 
 .add-task-label {
     width: 200px;
@@ -64,8 +75,7 @@
 }
 
 .new-task-submit:hover{
-    color: #3F4141;
-    background-color: #F5F5F5;
+    color: #feb66a;
     outline: none;
     border: 2px solid #3F4141;
     box-shadow: 3px 3px 3px #3f414183;

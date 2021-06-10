@@ -62,8 +62,7 @@
 }
 
 .add-team-submit:hover{
-  color: #3F4141;
-  background-color: #F5F5F5;
+  color: #57D4D4;
   outline: none;
   border: 2px solid #3F4141;
   box-shadow: 3px 3px 3px #3f414183;
@@ -71,8 +70,8 @@
 
 .add-team-submit:active{
   color: #3F4141;
-  font-weight: 600;
   background-color: #F5F5F5;
+  font-weight: 600;
   outline: none;
   border: 1px solid #3F4141;
   box-shadow: 1px 1px 1px #3f414183;

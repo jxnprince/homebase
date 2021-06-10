@@ -42,16 +42,16 @@
 #add-comment-btn:hover {
   border-top-right-radius: 2.5px;
   border-bottom-right-radius: 2.5px;
-  color:#3F4141;
-  background-color: #F5F5F5;
+  color: #57D4D4;
+  /* background-color: #F5F5F5; */
   box-shadow: 3px 3px 3px #3f414183;
 }
 
 #add-comment-btn:active {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  color:#F5F5F5;
-  background-color: #57D4D4;
+  color:#3F4141;
+  background-color: #F5F5F5;
   font-weight:500;
   box-shadow: 1px 1px 1px #3f414183;
 }

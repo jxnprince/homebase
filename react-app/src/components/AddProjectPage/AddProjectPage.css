@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #FFB355;
+    background-color: #feb66a;
     width: 400px;
     height: 450px;
     margin-top: 50px;
@@ -52,8 +52,7 @@
 }
 
 .new-project-submit:hover{
-    color: #3F4141;
-    background-color: #F5F5F5;
+    color: #feb66a;
     outline: none;
     border: 2px solid #3F4141;
     box-shadow: 3px 3px 3px #3f414183;
@@ -62,7 +61,7 @@
 .new-project-submit:active{
     color: #3F4141;
     font-weight: 600;
-    background-color: #FFB355;
+    background-color: #F5F5F5;
     outline: none;
     border: 1px solid #3F4141;
     box-shadow: 1px 1px 1px #3f414183;

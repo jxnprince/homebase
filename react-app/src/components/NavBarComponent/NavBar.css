@@ -16,6 +16,10 @@
   
   .left-item>a{
     color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .right-items{
@@ -34,6 +38,7 @@
     cursor: pointer;
     text-decoration: none;
     color: #57D4D4;
+    font-weight: 600;
 }
 
 #nav-spacer{
@@ -45,7 +50,7 @@
 #nav-spacer-main{
   width: 90vw;
   height: 100%;
-  color: brown;
+  /* color: brown; */
 }
 
 .dropdown>a{
@@ -58,4 +63,17 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
+}
+
+#header-logo{
+  height: 4.5vh;
+  transition: all 0.5 ease-in-out;
+}
+
+#header-logo:hover{
+  height: 4.75vh;
+}
+
+#header-logo:active{
+  height: 4vh;
 }
