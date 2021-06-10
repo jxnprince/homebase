@@ -89,3 +89,17 @@ def delete_task(id):
     db.session.delete(task)
     db.session.commit()
     return task.to_dict()
+
+
+@task_routes.route("/<int:id>/complete", methods=["GET"])
+def complete_task(id):
+    task = Task.query.get(id)
+    if task:
+        if task.completed:
+            task.completed = False
+        else:
+            task.completed = True
+        db.session.commit()
+        return task.to_dict()
+    else:
+        return {"Error": "Not Found"}
