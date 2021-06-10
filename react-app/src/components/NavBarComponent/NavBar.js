@@ -23,7 +23,7 @@ const NavigationBar = () => {
       
         <div className='left-item'>
           <a href='/' exact="true" className="active-home">
-            <img src='https://i.imgur.com/NqeGlYW.png' id='header-logo'/>
+            <img src='https://i.imgur.com/sEtt2fu.png' id='header-logo'/>
           </a>
         </div>
         <div id='nav-spacer'/>
@@ -41,7 +41,7 @@ const NavigationBar = () => {
       <div className='whole-nav'>
         <div className='left-item'>
           <a href='/' exact="true" className="active-home">
-            <img src='https://i.imgur.com/NqeGlYW.png' id='header-logo'/>
+            <img src='https://i.imgur.com/sEtt2fu.png' id='header-logo'/>
           </a>
         </div>
 
