@@ -22,7 +22,9 @@ const NavigationBar = () => {
       <div className='whole-nav'>
       
         <div className='left-item'>
-          <a href='/' exact="true" className="active-home">HomeBase</a>
+          <a href='/' exact="true" className="active-home">
+            <img src='https://i.imgur.com/NqeGlYW.png' id='header-logo'/>
+          </a>
         </div>
         <div id='nav-spacer'/>
         
@@ -38,7 +40,9 @@ const NavigationBar = () => {
     return (
       <div className='whole-nav'>
         <div className='left-item'>
-          <a href='/' exact="true" className="active-home">HomeBase</a>
+          <a href='/' exact="true" className="active-home">
+            <img src='https://i.imgur.com/NqeGlYW.png' id='header-logo'/>
+          </a>
         </div>
 
         <div id='nav-spacer-main'/>
