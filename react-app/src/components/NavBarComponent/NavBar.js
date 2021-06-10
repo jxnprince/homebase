@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom' 
 import './NavBar.css'
 import LogoutButton from '../auth/LogoutButton';
 import { NavDropdown } from 'react-bootstrap';
@@ -7,10 +8,14 @@ import { login } from "../../store/session"
 
 
 const NavigationBar = () => {
-
+  const history = useHistory()
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
-  const guestLogin = () => dispatch(login("demo@aa.io", "password"))
+  
+  const guestLogin = () => {
+    dispatch(login("demo@aa.io", "password"))
+    history.push(`/users/1/teams`)
+  }
 
   if (!user){
     return (

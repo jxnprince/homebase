@@ -15,7 +15,13 @@
     margin-top: 50px;
     border: 2px solid #3F4141;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px #3f414183;
+    box-shadow: 2px 3px 2px #3f414183;
+    transition: all 0.5s ease;
+}
+
+.add-project-form:hover {
+    border-radius: 2.5px;
+    box-shadow: 3px 4px 3px #3f414183;
 }
 
 .add-project-page {
@@ -42,6 +48,7 @@
     border: 2px solid #3F4141;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #3f414183;
+    transition: 0.25s;
 }
 
 .new-project-submit:hover{
@@ -55,7 +62,7 @@
 .new-project-submit:active{
     color: #3F4141;
     font-weight: 600;
-    background-color: #F5F5F5;
+    background-color: #FFB355;
     outline: none;
     border: 1px solid #3F4141;
     box-shadow: 1px 1px 1px #3f414183;
@@ -72,9 +79,20 @@
     margin-left: 0px;
     border: 2px solid #3F4141;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px #3f414183;
+    box-shadow: 2px 3px 2px #3f414183;
     height: 40px;
+    outline: none;
+    transition: all 0.5 ease-in-out;
 }
+
+.project-title-input:focus,
+.project-description-input:focus,
+.project-due-date-input:focus {
+    border: 1.5px solid #3F4141;
+    border-radius: 2.5px;
+    box-shadow: 1px 2px 1px #3f414183;
+}
+
 
 .project-due-date-input {
     text-align: center;
