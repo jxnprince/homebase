@@ -8,7 +8,7 @@ const REMOVE_TASK = "tasks/REMOVE_TASK"
 const loadTasks = (tasks) => {
   return {
     type: LOAD_TASKS,
-    tasks: tasks 
+    tasks: tasks
   }
 };
 
@@ -93,6 +93,11 @@ export const deleteTask = (taskId) => async dispatch =>{
     return task
   }else throw response
 }
+
+export const completeTask = (taskId) => async dispatch =>{
+    const response = await fetch(`/api/tasks/${taskId}/complete`);
+    console.log(response)
+  }
 
 const initialState = {tasks: null, task: null};
 

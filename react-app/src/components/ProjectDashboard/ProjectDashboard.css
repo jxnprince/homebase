@@ -51,21 +51,38 @@
     border: 2px solid #3F4141;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #3f414183;
-    width: 200px;
-    height: 200px;
+    width: 25vw;
+    height: 32vh;
     margin: 10px;
     padding: 5px;
     color: #3F4141;
+    overflow: scroll;
     font-size: .7em;
     transition: all 0.5s ease-in-out;
 }
 
-.task-container:hover{
+.task-containe {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+    width: 12vw;
+    height: 32vh;
+    margin: 10px;
+    padding: 5px;
+    color: #3F4141;
+    overflow: scroll;
+    font-size: .7em;
+    transition: all 0.5s ease-in-out;
+}
+
+.task-containe:hover{
     color: #F5F5F5;
     border: 2.5px solid #3F4141;
     border-radius: 2.5px;
-    width: 200px;
-    height: 200px;
     margin: 0.5vw;
     padding: 5px;
     box-shadow: 3px 3px 3px #3f414183;
@@ -93,4 +110,44 @@
     background-color: #3F4141;
     box-shadow: 2px 2px 2px #3f414183;
     color: #E74E3D;
+}
+
+.delete-task {
+    background-color: #E74E3D;
+    border: 2px solid #3F4141;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #3f414183;
+    color: #3F4141;
+}
+
+.delete-and-complete {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.completed-label {
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.completed {
+    border: none;
+    background-color:#FFB355;
+}
+
+.complete-div {
+    display: flex;
+    align-content: center;
+    padding-top: 3px;
+}
+
+.fa-check-circle {
+    font-size: 20px;
+}
+
+.fa-plus {
+    font-size: 30px;
+    margin-top: 60px;
 }
