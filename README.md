@@ -1,90 +1,69 @@
-# Flask React Project
+<p align="center">
+  <img width="300px" src="https://github.com/ashley-brown13/BookTracks/blob/main/frontend/public/images/Screen%20Shot%202021-06-04%20at%202.53.41%20PM.png" alt="title and logo">
+</p>
 
-This is the backend for the Flask React project.
+Homebase is a workflow website for households, allowing for families to easily assign tasks and projects to each other.	Our website can help encourage you to get those household tasks complete by organizing how, when, and who should get them done. The user-friendly design is perfect for adults and children!
 
-## Getting started
+![User Dashboard]()
 
-1. Clone this repository (only this branch)
+## Link to live site
+https://home--base.herokuapp.com/
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
-2. Install dependencies
+## Site Wiki
+https://github.com/jxnprince/homebase/wiki
 
-   ```bash
-   pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-   ```
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+## Technologies
+* Python
+* Flask
+* SQLAlchemy
+* React
+* Redux
 
-   ```bash
-   pipenv shell
-   ```
+## Key Features
 
-   ```bash
-   flask db upgrade
-   ```
+### Teams
 
-   ```bash
-   flask seed all
-   ```
+Authenticated users can create teams. Each team can be assigned a name, team members, and projects. This is a great feature that can help build community by allowing people to work towards a goal together. Parents can especially appreciate this feature as it allows them to easily divide tasks among their children.
 
-   ```bash
-   flask run
-   ```
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+![Team Page]()
 
----
+## Challenge
 
-*IMPORTANT!*
-If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-You can do this by running:
+One of the biggest challenges I encountered was when there was an accidental uploading one of the .venv files to GitHub. Unfortunately, it overwrote my own .venv file, and I was no longer allowed to enter my own shell environment. More trouble came when I realized that I could not install the dependencies on the recloned project. I was able to fix the issue by searching through an old commit. I realized that our Pipfile had also been changed as well, so that instead of having all the version numbers for the dependencies, there was just an asterisk. Once I reverted it back to the original Pipfile, I was able to install everything and get it working again.
 
-```bash
-pipenv lock -r > requirements.txt
+```js
+click = "*"
+gunicorn = "*"
+itsdangerous = "*"
+python-dotenv = "*"
+six = "*"
+Flask = "*"
+Flask-Cors = "*"
+Flask-SQLAlchemy = "*"
+Flask-WTF = "*"
 ```
 
-*ALSO IMPORTANT!*
-psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
+```js
+click = "==7.1.2"
+gunicorn = "==20.0.4"
+itsdangerous = "==1.1.0"
+python-dotenv = "==0.14.0"
+six = "==1.15.0"
+Flask = "==1.1.2"
+Flask-Cors = "==3.0.8"
+Flask-SQLAlchemy = "==2.4.4"
+Flask-WTF = "==0.14.3"
+```
 
----
+## Instructions
+After cloning the repository to your local machine, follow the instructions below to start the app:
 
-## Deploy to Heroku
-
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
-
-   ```bash
-   heroku login
-   ```
-5. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-8. Release your docker container to heroku
-
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-11. profit
+>1. In the root folder, run the following `pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt`
+>2. Make a .env file based on the .env.example (add values where required)
+>3. Create your PostgreSQL user, password, and database. The information must match your .env file.
+>4. Enter your shell enviroment with `pipenv shell`
+>5. `flask db upgrade`
+>6. `flask seed all`
+>7. `flask run`
+>8. In the react-app folder, run `npm install` to install all frontend dependencies.
+>9. In the frontend folder, `npm start` to start the react app.
