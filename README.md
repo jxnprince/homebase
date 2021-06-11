@@ -1,10 +1,10 @@
 <p align="center">
-  <img width="300px" src="https://github.com/ashley-brown13/BookTracks/blob/main/frontend/public/images/Screen%20Shot%202021-06-04%20at%202.53.41%20PM.png" alt="title and logo">
+  <img width="300px" src="https://github.com/jxnprince/homebase/blob/main/react-app/public/images/logo.png" alt="title and logo">
 </p>
 
 Homebase is a workflow website for households, allowing for families to easily assign tasks and projects to each other.	Our website can help encourage you to get those household tasks complete by organizing how, when, and who should get them done. The user-friendly design is perfect for adults and children!
 
-![User Dashboard]()
+![User Dashboard](https://github.com/jxnprince/homebase/blob/main/react-app/public/images/user%20dashboard.png)
 
 ## Link to live site
 https://home--base.herokuapp.com/
@@ -25,7 +25,7 @@ https://github.com/jxnprince/homebase/wiki
 
 Authenticated users can create teams. Each team can be assigned a name, team members, and projects. This is a great feature that can help build community by allowing people to work towards a goal together. Parents can especially appreciate this feature as it allows them to easily divide tasks among their children.
 
-![Team Page]()
+![Team Page](https://github.com/jxnprince/homebase/blob/main/react-app/public/images/homebase.png)
 
 ## Challenge
 
