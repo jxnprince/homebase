@@ -23,9 +23,19 @@ https://github.com/jxnprince/homebase/wiki
 
 ### Teams
 
-Authenticated users can create teams. Each team can be assigned a name, team members, and projects. This is a great feature that can help build community by allowing people to work towards a goal together. Parents can especially appreciate this feature as it allows them to easily divide tasks among their children.
+Authenticated users can create teams. Each team can be assigned a name, team members, and projects. This is a great feature that can help build community by allowing people to work towards a goal together. Parents can especially appreciate this feature as it allows them to easily divide tasks among their children.  New team members can be added via the blue form on the left side of the page.
 
 ![Team Page](https://github.com/jxnprince/homebase/blob/main/react-app/public/images/homebase.png)
+
+### Projects
+
+Authenticated users can create projects belonging to a team. Each project can be assigned a name, description, and due date. This feature focuses the individual goals of subdivisions of a team. This feature can be used to delegate tasks to specific groups within a team.
+
+### Tasks
+Authenticated users can create tasks belonging to a project. Each task can be assigned a name, description, due date, an assigned user, and a completed status. This feature creates the individual goals of a particular project. Tasks can be used to delegate responsiblilty to specific individuals within a project.
+
+### Message Board
+Users that are a member of a particular team can post information about their status on particular tasks on a project's main page.  All messages are displayed in order posted.
 
 ## Challenge
 
