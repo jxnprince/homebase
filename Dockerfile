@@ -5,7 +5,7 @@ COPY react-app/. .
 
 # You have to set this because it should be set during build time.
 
-ENV REACT_APP_BASE_URL=https://homebase-basehome.herokuapp.com
+ENV REACT_APP_BASE_URL=https://home--base.herokuapp.com
 
 
 # Build our React App
